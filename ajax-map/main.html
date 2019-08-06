@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>title</title>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+		<script src="js/action.js"></script>
+		<script src="js/page.js"></script>
+	</head>
+	<body>
+		<div data-role="page" id="index">
+			<header data-role="header" data-id="common_header" data-fullscreen="true"
+				 class="header">
+				<a href="" data-rel="back" class="ui-btn ui-btn-left ui-icon-carat-l ui-btn-icon-notext">戻る</a>
+				<h1 class="ui-title" role="heading" aria-level="1">title</h1>
+				<div class="ui-btn-right">
+					<a href="index.html" class="ui-btn ui-icon-home ui-btn-icon-notext">ホーム</a>
+				</div>
+			</header>
+			<div role="main" class="ui-content">
+				<div id="tabs" data-role="tabs">
+					<nav data-role="navbar">
+						<ul>
+							<li><a href="#tab1" class="ui-btn-active">tab1</a></li>
+							<li><a href="#tab2">tab2</a></li>
+						</ul>
+					</nav>
+					<main id="tab1" class="ui-body ui-body-a">
+						<nav data-role="navbar" id="nav1">
+							<ul>
+								<li><a href="#" class="ui-btn ui-btn-icon-mini ui-btn-icon-notext
+									 ui-icon-check">メニュー1</a></li>
+								<li><a href="#" class="ui-btn ui-btn-icon-mini ui-btn-icon-notext
+									 ui-icon-gear">メニュー1</a></li>
+								<li><a href="#" class="ui-btn ui-btn-icon-mini ui-btn-icon-notext
+									 ui-icon-info">メニュー1</a></li>
+								<li><a href="#" class="ui-btn ui-btn-icon-mini ui-btn-icon-notext
+									 ui-icon-star">メニュー1</a></li>
+							</ul>
+						</nav>
+						<div id="map1" class="display">
+						</div>
+					</main>
+					<main id="tab2" class="ui-body ui-body-a">
+						<nav data-role="navbar" id="nav2">
+							<ul>
+								<li><a href="#" class="ui-btn ui-btn-icon-mini ui-btn-icon-notext
+									 ui-icon-check">メニュー2</a></li>
+								<li><a href="#" class="ui-btn ui-btn-icon-mini ui-btn-icon-notext
+									 ui-icon-gear">メニュー2</a></li>
+								<li><a href="#" class="ui-btn ui-btn-icon-mini ui-btn-icon-notext
+									 ui-icon-info">メニュー2</a></li>
+								<li><a href="#" class="ui-btn ui-btn-icon-mini ui-btn-icon-notext
+									 ui-icon-star">メニュー2</a></li>
+							</ul>
+						</nav>
+						<div id="map2" class="display">
+						</div>
+					</main>
+				</div>
+			</div>
+			<footer data-id="common_footer" data-role="footer" class="footer">
+				<small><h3 class="ui-title" role="heading" aria-level="1">Copyright</h3></small>
+			</footer>
+		</div>
+	</body>
+</html>

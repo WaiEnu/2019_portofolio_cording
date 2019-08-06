@@ -1,0 +1,148 @@
+@charset "utf-8";
+
+
+
+
+
+/* ------------------------------------------------
+   基本（ Media Queries ）
+------------------------------------------------ */
+
+/* smartphone */
+@media screen and (max-width: 576px) {
+.right-top .heading-box h1 {
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: normal;
+}
+.left-top {
+    text-align: center;
+	margin-top: 20px;
+	padding-bottom: 7px;
+}
+div.container form {
+    display: none;
+}
+div.container a.navbar-brand img.img-fluid {
+    max-width: 83%;
+    height: auto;
+}
+html body div.container-fluidA div.top-bar div.container div.row div.col-md-6.col-sm-6 div.left-top div.email-box {
+    display: none;
+}
+html body div.container-fluidA div.top-bar div.container div.row div.col-md-6.col-sm-6 div.left-top div.phone-box {
+    display: none;
+}
+
+/* SPに表示させる */
+div#navbarText.collapse.navbar-collapse.justify-content-center ul.navbar-nav li.nav-item a.nav-link.mail {
+    display: block;
+}
+div#navbarText.collapse.navbar-collapse.justify-content-center ul.navbar-nav li.nav-item a.nav-link.phone {
+    display: block;
+}
+
+
+/* navbar-togglerの範囲 */
+div.container button.navbar-toggler {
+    background-color: #4db6ac;
+}
+
+
+/* jumbotronの範囲 */
+.jumbotron.jumbotron-fluid.text-center {
+    background-image: url(../images/main.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    height: 352px;
+    padding-top: 0;
+    background-size: cover;
+}
+.display-4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.9rem;
+    line-height: 1.2;
+    color: #FFF;
+    word-wrap: break-word;
+    text-transform: uppercase;
+}
+.lead01 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #FFF;
+    line-height: 2em;
+    margin-bottom: 45px;
+}
+
+
+
+/* blockAの範囲 */
+div.container.blockA {
+    margin-bottom: 40px;
+}
+html body div.container.blockA div.row.text-center div.col-12 h1 {
+    font-size: 1.5rem;
+}
+.row.text-center .col-12 p {
+    letter-spacing: .05rem;
+    line-height: 2;
+	text-align: left;
+}
+.Link-button {
+  font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
+  text-align: center;
+  padding-top: 0px;
+}
+
+
+/* blockBの範囲 */
+html body div.container.blockB div.blockB-inner h1 {
+    font-family: 'Heebo', sans-serif;
+	text-align: center;
+	letter-spacing: -0.02em;
+	text-align: center;
+    text-align: -webkit-center;
+    text-align: -moz-center;
+	font-size: 2rem;
+}
+
+
+}
+
+
+
+
+/* smartphone（横向き） */
+@media (min-width: 576px) {
+
+
+
+}
+
+/* tablet */
+@media (min-width: 768px) {
+
+}
+
+/* pc */
+@media (min-width: 992px) {
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+}
+
+/* pc */
+@media (min-width: 1200px) {
+
+}
+
+
+
+
+
+
+
+

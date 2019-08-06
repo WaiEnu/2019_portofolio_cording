@@ -1,0 +1,53 @@
+body{
+	margin: 0 auto;
+	max-width: 630px;
+}
+
+header,footer,main{
+	margin: 0 auto;
+	width: 100%;
+	height:auto;
+	float:left;
+}
+
+nav{
+	width: 100%;
+	height:auto;
+	margin: 0 auto;
+}
+
+article{
+	width: 65%;
+	float:left;
+	margin: 0 auto;
+	display: -webkit-inline-flex; /* Safari */
+	display: inline-flex;
+	-webkit-flex-wrap: wrap; /* Safari */
+	flex-wrap:         wrap;
+	-webkit-justify-content: space-between; /* Safari */
+	justify-content:         space-between;
+	-webkit-align-content: space-around; /* Safari */
+	align-content:         space-around;
+}
+
+aside{
+	width: 35%;
+	float:left;
+	margin: 0 auto;
+	display: -webkit-inline-flex; /* Safari */
+	display: inline-flex;
+	-webkit-flex-wrap: wrap; /* Safari */
+	flex-wrap:         wrap;
+	-webkit-justify-content: space-between; /* Safari */
+	justify-content:         space-between;
+	-webkit-align-content: space-around; /* Safari */
+	align-content:         space-around;
+}
+
+article div,aside div{
+margin: 1px;
+}
+
+.menu li{
+	display: inline-block;
+}

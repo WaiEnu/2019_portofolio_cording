@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+body,section,article,div{
+	margin: 0;
+	padding: 0;
+}
+ul,ol,li{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#mv{
+	width:100%;
+	height:700px;
+	background:url("../img/bg1.jpg") center center no-repeat;
+	background-size:cover;
+}
+.inner{
+	width:100%;
+	height:inherit;
+	margin: 0;
+	padding: 0;
+	position:relative;
+	background-color: rgba(79, 79, 84, 0.3);
+}
+#mv article{
+	width: 80%;
+	margin: 0 ;
+	padding: 0;
+	text-align: left;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	-webkit-transform: translateY(-50%) translateX(-50%);
+	transform: translateY(-50%) translateX(-50%);
+}
+.text-box{
+	font-size: 16px;
+	line-height: 1.5em;
+	font-weight: normal;
+}
+.main-txt{
+	max-width: 528px;
+	color: #f8ffe9;
+	margin: 16px 0;
+	opacity: 0;
+}
+.main-txt.top{
+	margin-bottom: 32px;
+	font-size: 2.5em;
+	line-height: 1.125em;
+	animation-name: txt_slide;
+	animation-duration: 2s;
+	animation-delay: 0s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+.main-txt.top:after{
+	content: "";
+	position: absolute;
+	height: 1px;
+	background: #fff;
+	z-index: 50;
+	bottom: -12px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	padding: 0;
+	opacity: 0;
+	animation-name: line_show_width;
+	animation-duration: 2s;
+	animation-delay: 1s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+.main-txt.outline{
+	animation-name: txt_slide;
+	animation-duration: 2s;
+	animation-delay: 1.5s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+.main-txt.button{
+	animation-name: txt_slide;
+	animation-duration: 2s;
+	animation-delay: 2.5s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+.btn{
+	display: block;
+	color: #f8ffe9;
+	width: 6em;
+	padding: .5em;
+	margin-left: .5em;
+	text-align: center;
+	border: solid #fff 2px;
+	text-decoration: none;
+}
+@keyframes txt_slide {
+	0% {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+@keyframes line_show_width {
+	0% {
+		opacity: 0;
+		width: 15%;
+	}
+	100% {
+		opacity: 1;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width:850px){
+	#mv{
+		height:400px;
+	}
+	.text-box{
+		font-size: 14px;
+		line-height: 1.5em;
+	}
+	.main-txt.top{
+		font-size: 1.8em;
+	}
+}

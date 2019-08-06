@@ -1,0 +1,115 @@
+body{
+	width:350px;
+	height:500px;
+}
+
+nav{
+	width:100%;
+	margin:0 auto;
+}
+
+main{
+	width:350px;
+	height:480px;
+	margin:0 auto;
+}
+
+.items{
+	width:350px;
+	height:70px;
+	position:relative;
+	margin: 0 auto;
+	float: left;
+}
+
+.drag{
+	width:45px;
+	height:45px;
+	display: block;
+	margin: 0 auto;
+}
+
+.dragarea{
+	background:#CC0000;
+	width:50px;
+	height:50px;
+	position:absolute;
+	cursor:pointer;
+}
+
+.area1{
+	top:10px;
+	left:10px;
+}
+.area2{
+	top:10px;
+	left:65px;
+}
+.area3{
+	top:10px;
+	left:120px;
+}
+.area4{
+	top:10px;
+	left:175px;
+}
+.area5{
+	top:10px;
+	left:230px;
+}
+.area6{
+	top:10px;
+	left:285px;
+}
+
+.maps{
+	margin:0 auto;
+	width:320px;
+	height:330px;
+	float: left;
+}
+
+.wrapper{
+	margin:0 auto;
+	margin-top: 15px;
+	margin-left: 10px;
+	width:300px;
+	height:300px;
+	position:relative;
+	float: left;
+}
+
+.container{
+	margin:0 auto;
+	width:98px;
+	height:98px;
+	position:relative;
+	float: left;
+	border: 1.0px solid #444;
+}
+
+.drop{
+	z-index:-1;
+	text-align: center;
+	background:#CCCCCC;
+	width:45px;
+	height:45px;
+	position:absolute;
+}
+
+.zone1{
+	top:2px;
+	left:2px;
+}
+.zone2{
+	top:2px;
+	left:51px;
+}
+.zone3{
+	top:51px;
+	left:2px;
+}
+.zone4{
+	top:51px;
+	left:51px;
+}

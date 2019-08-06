@@ -1,0 +1,94 @@
+body{
+	margin: 0 auto;
+}
+
+#wrapper{
+	position: relative;
+	margin: 5% auto;
+	max-width: 600px;
+}
+
+.container{
+	margin: 0 auto;
+	width:100%;
+	height:auto;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
+	align-content: flex-start;
+}
+
+.content{
+	margin: 10px;
+	width:150px;
+	height:150px;
+	border: 2px solid #59b1eb;
+}
+
+.red {
+	color:red;
+}
+
+dl{
+	margin:0 auto;
+	width:inherit;
+}
+dl dt{
+	margin:0 auto;
+	width:inherit;
+	background:#7CADB6;
+	border-bottom:1px solid #FFFFFF;
+	cursor:pointer;
+}
+
+dl dd{
+	margin:0 auto;
+	width:inherit;
+	border:1px solid #7CADB6;
+	border-top:none;
+	display:none;
+}
+
+.btn{
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	background-color: #3692ff;
+	color: #fff;
+}
+
+.active {
+	background-color: #ccc;
+}
+
+.btn > span:last-of-type,
+.btn.active > span:first-of-type{
+	display: none;
+}
+
+.btn.active > span:last-of-type {
+	display: inline;
+}
+
+.toggle2 p{
+	text-align: center;
+}
+
+.fade{
+	display: inline-block;
+	margin: 30px;
+	width:90px;
+	height:90px;
+	background: #1eb59b;
+}

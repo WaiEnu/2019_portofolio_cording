@@ -1,0 +1,579 @@
+@charset "UTF-8";
+
+/* 0-1. Reset
+-------------------------------------------------- */
+html{
+	font-family: sans-serif;
+}
+body{
+	margin: 0;
+	padding: 0;
+	-webkit-text-size-adjust: 100%;
+}
+a{
+	background: transparent;
+}
+a:focus{
+	outline: thin dotted;
+}
+a:active,
+a:hover{
+	outline: 0;
+}
+html,div,span,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+a,abbr,acronym,address,code,del,em,img,strong,
+dl,dt,dd,ol,ul,li,
+fieldset,form,label,
+table,caption,tbody,tfoot,thead,tr,th,td{
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+article,aside,footer,header,small,nav,section,figure,figcaption,main{
+	margin: 0;
+	padding: 0;
+	display: block;
+	vertical-align: baseline;
+	list-style: none;
+	background-color: transparent;
+	outline: none;
+}
+audio,canvas,video{
+	display: inline-block;
+}
+ul,ol{
+	list-style-type: none;
+}
+table{
+	border: none;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+img{
+	line-height: 1;
+	vertical-align: bottom;
+	outline: none;
+}
+a img{
+	border: none;
+	outline: none;
+}
+sub,sup{
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+hr{
+	box-sizing: content-box;
+	height: 0;
+}
+dt,dd,li,
+th,td,
+input,textarea{
+	text-align: left;
+	vertical-align: top;
+}
+button{
+	border: none;
+}
+input,textarea,button{
+	margin: 0;
+	padding: 0;
+}
+input{
+	border: 1px solid #dad7d3;
+	padding: 2px 5px;
+}
+textarea{
+	border: 1px solid #dad7d3;
+	resize: none;
+}
+button,label{
+	background-color: transparent;
+	cursor: pointer;
+}
+button,select{
+	text-transform: none;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"]{
+	-webkit-appearance: button;
+	cursor: pointer;
+}
+button[disabled],
+input[disabled]{
+	cursor: default;
+}
+input[type="checkbox"],
+input[type="radio"]{
+	box-sizing: content-box;
+	padding: 0;
+	vertical-align: middle;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration{
+	-webkit-appearance: none;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner{
+	padding: 0;
+	border: 0;
+}
+textarea{
+	overflow: auto;
+	vertical-align: top;
+}
+small{
+	font-size: 0.8em;
+	display: inline;
+}
+:focus{
+	outline: none;
+}
+
+/* 0-2. Base
+-------------------------------------------------- */
+html{
+	overflow-y: scroll;
+	font-size: 100%;
+}
+h1,h2,h3,h4,h5,h6{
+	font-size: 100%;
+	font-weight: bold;
+}
+table{
+	width: 100%;
+}
+input,textarea,button,select{
+	font-family: "YakuHanJP", "ヒラギノ角ゴ Pro W3", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic Pro", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic,"メイリオ","ＭＳ Ｐゴシック",sans-serif;
+	font-size: 100%;
+}
+html[lang="en"] input,
+html[lang="en"] textarea,
+html[lang="en"] button,
+html[lang="en"] select{
+	font-family: Arial, Helvetica, sans-serif;
+}
+strong,
+em{
+	font-weight: bold;
+}
+
+/* 0-3. Config
+-------------------------------------------------- */
+@font-face {
+  font-family: "YakuHanJP";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/resource/font/YakuHanJP-Regular.eot");
+  src: url("/resource/font/YakuHanJP-Regular.woff2") format("woff2"),
+  url("/resource/font/YakuHanJP-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "YakuHanMP";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/resource/font/YakuHanMP-Regular.eot");
+  src: url("/resource/font/YakuHanMP-Regular.woff2") format("woff2"),
+  url("/resource/font/YakuHanMP-Regular.woff") format("woff");
+}
+body{
+	font-size: 15px;
+	color: #333;
+	background-color: #fff;
+	font-family: "YakuHanJP", "ヒラギノ角ゴ Pro W3", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic Pro", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic,"メイリオ","ＭＳ Ｐゴシック",sans-serif;
+	letter-spacing: 0.06em;
+}
+[lang="en"] body{
+	font-family: "Arial", "YakuHanJP", "ヒラギノ角ゴ Pro W3", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic Pro", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic,"メイリオ","ＭＳ Ｐゴシック",sans-serif;
+}
+@media only screen and (min-width: 1px) and (max-width: 767px){
+	body{
+		font-size: 13px;
+		letter-spacing: 0.1em;
+		line-height: 1.538;
+	}
+}
+input,textarea,button,select{
+	font-family: "YakuHanJP", "ヒラギノ角ゴ Pro W3", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic Pro", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic,"メイリオ","ＭＳ Ｐゴシック",sans-serif;
+	font-size: 100%;
+}
+[lang="en"] input,textarea,button,select {
+	font-family: "Arial", "YakuHanJP", "ヒラギノ角ゴ Pro W3", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic Pro", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", YuGothic,"メイリオ","ＭＳ Ｐゴシック",sans-serif;
+}
+
+a{
+	color: #0075c2;				/* ベースのリンク文字の色を指定 */
+	text-decoration: none;	/* ベースのリンク文字の下線の有無を指定 */
+	transition: all .3s;
+}
+a:hover,
+a:active{
+	color: #0075c2;
+	text-decoration: underline;		/* ベースのリンク文字の下線の有無を指定 */
+}
+a:focus {
+	outline: none;
+}
+h1,h2,h3,h4,h5,h6{
+	line-height: 1.4;			/* ベースの行間を指定 */
+}
+h1,h2,h3 {
+	font-family: "YakuHanMP", "ヒラギノ明朝 Pro W3","Hiragino Mincho Pro";
+}
+[lang="en"] h1, h2, h3 {
+	font-family: "Georgia", "YakuHanMP", "ヒラギノ明朝 Pro W3","Hiragino Mincho Pro";
+}
+p{
+	line-height: 1.6666666;			/* ベースの行間を指定 */
+}
+dt,dd,li,
+th,td,
+input,
+textarea,
+button{
+	line-height: 1.5;			/* ベースの行間を指定 */
+}
+button {
+	border-radius: 0;
+}
+sup {
+	vertical-align: top;
+	line-height: 1;
+}
+.is-visibleSp{
+	display: none!important;
+}
+@media only screen and (min-width:1px) and (max-width:767px){
+	.is-visibleSp{
+		display: block!important;
+	}
+}/* endMedia */
+
+/* 1-1-2. .l-article
+-------------------------------------------------- */
+.l-article {
+	padding-bottom: 200px;
+}
+@media only screen and (min-width: 1px) and (max-width: 767px) {
+	.l-article {
+		padding-bottom: 100px;
+	}
+}
+
+.bg-grey{
+	background: #f5f5f5;
+}
+
+/*slider
+-----------------------------------------*/
+.slider-inner-wrp {
+	height: 750px;
+}
+@media only screen and (min-width: 1px) and (max-width: 767px) {
+	.slider-inner-wrp {
+		height: 375px;
+	}
+	#mv .slider-inner-wrp {
+		height: 400px;
+	}
+}
+
+/* /index
+-----------------------------------------*/
+#mv .box-image {
+	height: 800px;
+}
+#mv .slider{
+	position: relative;
+	width: 100%;
+	height: 800px;
+	z-index: 10;
+	overflow: hidden;
+}
+#mv .slider li{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 800px;
+	opacity: 1;
+	z-index: 20;
+	background: #0075c2;
+}
+#mv .slider li div{
+	width: 100%;
+	height: 800px;
+}
+#mv .slider .index-bg-main01{
+	background: url("../img/slider/index-bg-main01.jpg") center center / cover;
+}
+#mv .slider .index-bg-main02{
+	background: url("../img/slider/index-bg-main02.jpg") center center / cover;
+}
+#mv .slider .index-bg-main03{
+	background: url("../img/slider/index-bg-main03.jpg") center center / cover;
+}
+#mv .slider li.top-main-active{
+	animation: anime_scale 7.5s linear 0s forwards, anime_fade 1.5s ease-in 6s forwards;
+	z-index: 30;
+}
+#mv .slider li.top-main-active + li.top-main-active{
+	z-index: 25;
+}
+#mv .slider li.top-main-active div{
+	animation: anime_fadeimg_start 1.5s ease-in 0s forwards, anime_fadeimg_end 1.5s ease-in 6s forwards;
+}
+#mv .slider li.top-main-active_next{
+	z-index: 20;
+	opacity: 1;
+}
+#mv .slider li.top-main-active_next div{
+	opacity: 0.2;
+}
+#mv .slider li.top-main-init{
+}
+#mv .slider li.top-main-init div{
+	animation: anime_fade 1.5s ease-in 6s forwards;
+}
+@keyframes anime_scale {
+	0% {
+		transform: scale(1.0);
+	}
+	100% {
+		transform: scale(1.13);
+	}
+}
+@keyframes anime_fade {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@keyframes anime_fadeimg_end {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0.2;
+	}
+}
+@keyframes anime_fadeimg_start {
+	0% {
+		opacity: 0.2;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+#mv .slider-inner-wrp {
+	height: 800px;
+}
+
+#mv .box-image-wrp {
+	position: relative;
+}
+#mv .box-txt-wrp {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	transform: scale(1.0) translateY(-50%);
+	z-index: 100;
+	text-align: center;
+}
+#mv .main-txt{
+	display: inline-block;
+}
+#mv .main-txt01{
+	position: relative;
+	display: block;
+	font-family: "YakuHanMP", "ヒラギノ明朝 Pro W3","Hiragino Mincho Pro";
+	font-size: 44px;
+	color: #fff;
+	padding: 0 0 21px;
+}
+[lang="en"] #mv .main-txt01{
+	font-family: "Georgia", "YakuHanMP", "ヒラギノ明朝 Pro W3","Hiragino Mincho Pro";
+}
+#mv .main-txt02{
+	position: relative;
+	display: none;
+	font-family: "YakuHanMP", "ヒラギノ明朝 Pro W3","Hiragino Mincho Pro";
+	font-size: 44px;
+	color: #fff;
+	padding: 14px 0 0;
+}
+[lang="en"] #mv .main-txt02{
+	font-family: "Georgia", "YakuHanMP", "ヒラギノ明朝 Pro W3","Hiragino Mincho Pro";
+}
+#mv .main-txt02:before{
+	content: "";
+	position: absolute;
+	height: 1px;
+	background: #fff;
+	z-index: 50;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+#mv .main-txt02 .anime-wrp:before {
+	content: "";
+	position: absolute;
+	background: #1a88d1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	z-index: 200;
+	-webkit-transform: translateX(-101%);
+	transform: translateX(-101%);
+}
+#mv .main-txt02.top-main-txt-show .anime-wrp:before {
+	-webkit-transform: translateX(102%);
+	transform: translateX(102%);
+	transition: all .85s;
+	-webkit-transition-timing-function:cubic-bezier(.785, .135, .15, .86);
+	transition-timing-function:cubic-bezier(.785, .135, .15, .86);
+}
+#mv .main-txt02 .anime-wrp > span {
+	opacity: 0;
+}
+#mv .main-txt02.top-main-txt-show {
+	display: inline-block !important;
+	width: 100%;
+}
+#mv .main-txt02.top-main-txt-show:before {
+	animation: anime_txthidewidth 0.5s ease-in 0s forwards;
+}
+#mv .main-txt02.top-main-txt-show .anime-wrp > span {
+	animation: anime_txthide 0.1s linear 0.3s forwards;
+}
+#mv .main-txt02.top-main-txt-#mv .main-txt02.top-main-txt-show  .anime-wrp{
+	display: inline-block;
+}
+#mv .main-txt02.top-main-txt-next {
+	display: inline-block !important;
+	width: 100%;
+}
+#mv .main-txt02.top-main-txt-next:before {
+	animation: anime_txtshowwidth 0.3s ease-in 0s forwards;
+}
+#mv .main-txt02.top-main-txt-next > span {
+	animation: anime_txtshow 1s linear 0s forwards;
+}
+#mv .main-txt02.top-main-txt-end {
+	display: none !important;
+}
+#mv .main-txt02.top-main-txt-init {
+	display: inline-block;
+	width: 100%;
+}
+@keyframes anime_txthide {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@keyframes anime_txtshow {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes anime_txthidewidth {
+	0% {
+		opacity: 1;
+		width: 100%;
+	}
+	100% {
+		opacity: 0;
+		width: 50%;
+	}
+}
+@keyframes anime_txtshowwidth {
+	0% {
+		opacity: 0;
+		width: 50%;
+	}
+	100% {
+		opacity: 1;
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 1px) and (max-width: 767px) {
+	#mv .main-txt01{
+		font-size: 22px;
+		padding: 0 0 10px;
+	}
+	#mv .main-txt02{
+		font-size: 22px;
+		padding: 10px 0 0;
+	}
+}
+
+.anime-wrp {
+	vertical-align: bottom;
+}
+/* メインビジュアルのタイトルアニメーション */
+.anime-title span {
+	position: relative;
+	overflow: hidden;
+}
+.anime-title .anime-wrp {
+	display: inline-block;
+	width: 100%;
+}
+.hdg-lv1.anime-title .anime-wrp,
+.box-main-image__sub--02 .anime-title .anime-wrp {
+	width: auto;
+}
+.anime-title span.txt-wrp {
+	opacity: 0;
+}
+.anime-title > span.anime-wrp:after {
+	content: "";
+	position: absolute;
+	background: #1a88d1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.anime-title.no-over > span.anime-wrp:after {
+	overflow: hidden;
+	visibility: hidden;
+	-webkit-transform: translateX(-100%);
+	transform: translateX(-100%);
+}
+.anime-title.no-over > span.anime-wrp--right:after {
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+}
+.anime-title.is-end > span.anime-wrp:after {
+	-webkit-transform: translateX(101%);
+	transform: translateX(101%);
+	transition: all .85s;
+	-webkit-transition-timing-function:cubic-bezier(.785, .135, .15, .86);
+	transition-timing-function:cubic-bezier(.785, .135, .15, .86);
+}
+.anime-title.is-end > span.anime-wrp--right:after {
+	-webkit-transform: translateX(-101%);
+	transform: translateX(-101%);
+	transition: all .85s;
+	-webkit-transition-timing-function:cubic-bezier(.785, .135, .15, .86);
+	transition-timing-function:cubic-bezier(.785, .135, .15, .86);
+}

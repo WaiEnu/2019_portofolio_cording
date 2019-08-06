@@ -1,0 +1,364 @@
+@charset "utf-8";
+
+
+
+
+
+
+
+/* ------------------------------------------------
+   headerの範囲
+------------------------------------------------ */
+.top-bar {
+    background: #080808;
+}
+.col-md-6.col-sm-6 .right-top .heading-box {
+    position: relative;
+}
+
+.right-top .heading-box h1 {
+    color: #FFFFFF;
+    text-align: left;
+    font-size: 0.875rem;
+	font-weight: normal;
+    position: absolute;
+    top: 8px;
+
+}
+.left-top {
+    padding: 3px 0px;
+    float: right;
+}
+.email-box {
+    display: inline-block;
+    margin-right: 20px;
+}
+.email-box a {
+    color: #ffffff;
+    font-size: 16px;
+}
+.email-box a:hover {
+    color: #cdd51f;
+}
+.email-box a i {
+    padding: 0px 5px;
+}
+.phone-box {
+    display: inline-block;
+}
+.phone-box a {
+    color: #ffffff;
+    font-size: 16px;
+}
+.phone-box a:hover {
+    color: #cdd51f;
+}
+.phone-box a i {
+    padding: 0px 5px;
+}
+
+/* PCには表示させない（SPに表示） */
+div#navbarText.collapse.navbar-collapse.justify-content-center ul.navbar-nav li.nav-item a.nav-link.mail {
+    display: none;
+}
+div#navbarText.collapse.navbar-collapse.justify-content-center ul.navbar-nav li.nav-item a.nav-link.phone {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+div.container a.navbar-brand.sp-center.d-none.d-md-block img {
+    max-width: 100%;
+    height: auto;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+
+
+/*  container-fluidCの範囲
+------------------------------------------------ */
+.container-fluidC {
+    background-color: #000000;
+	padding-top: 10px;
+    padding-bottom: 10px;
+}
+.bg-dark {
+    background-color: #000000 !important;
+}
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------------
+   navbar-navの範囲
+------------------------------------------------ */
+.navbar-nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------------
+   jumbotronの範囲
+------------------------------------------------ */
+.jumbotron.jumbotron-fluid.text-center {
+    background-image: url(../images/main.png);
+    background-repeat: no-repeat;
+	background-position: top center;
+	height: 655px;
+	padding-top: 160px;
+	background-size:cover;
+}
+.display-4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.3rem;
+    line-height: 1.2;
+    color: #FFF;
+	word-wrap: break-word;
+	text-transform: uppercase;
+}
+div.container h1.display-4 span.text-color01 {
+    color: #eadd00;
+}
+.lead01 {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #FFF;
+    line-height: 2em;
+	margin-bottom: 90px;
+}
+
+/* buttonの範囲 */
+.button {
+  position: relative;
+  display: inline-block;
+  padding: .5em 4em;
+  border: 1px solid #fff;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  overflow: hidden;
+}
+.button::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  background-color: rgba(255,255,255,.3);
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.button:hover::after {
+  -webkit-animation: circle .75s;
+  animation: circle .75s;
+}
+@-webkit-keyframes circle {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+  }
+}
+@keyframes circle {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+  }
+}
+div.container p.lead a:hover.button {
+    color: #FFF;
+	text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------------
+   blockAの範囲
+------------------------------------------------ */
+div.container.blockA {
+    margin-bottom: 100px;
+}
+.row.text-center .col-12 h1 {
+     font-family: 'Noto Serif JP', serif;
+	 font-size: 2rem;
+	 color: #080808;
+	 line-height: 1.5em;
+	 margin-bottom: 24px;
+}
+.submain01 {
+    margin: 30px 0 34px 0;
+}
+.row.text-center .col-12 p {
+    letter-spacing: .05rem;
+    line-height: 2.3;
+	text-align: left;
+}
+.Link-button {
+  font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
+  text-align: center;
+  padding-top: 30px;
+}
+/* ここから下がボタンのCSS　*/
+.btn-animation-02 {
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  background-color: #4db6ac;
+  border: 2px solid #4db6ac;
+  font-size: 16px;
+  color: #4db6ac;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 24px;
+  border-radius: 4px;
+  position: relative;
+}
+.btn-animation-02 span {
+  position: relative;
+  z-index: 1;
+}
+.btn-animation-02::before,
+.btn-animation-02::after {
+  content: "";
+  display: block;
+  background-color: #FFF;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: .2s;
+}
+.btn-animation-02::before {
+  left: 0;
+}
+.btn-animation-02::after {
+  right: 0;
+}
+.btn-animation-02:hover:before,
+.btn-animation-02:hover:after {
+  width: 0;
+  background-color: #FFF;
+}
+.btn-animation-02:hover {
+  color: #FFF;
+}
+.button-8{
+  width:200px;
+  height:50px;
+  border:2px solid #4db6ac;
+  text-align:center;
+  cursor:pointer;
+  position:relative;
+  box-sizing:border-box;
+  overflow:hidden;
+  border-radius: 3px;
+}
+.button-8 a{
+  font-family:arial;
+  font-size:1rem;
+  color:#fff;
+  text-decoration:none;
+  line-height:50px;
+  transition:all .5s ease;
+  z-index:2;
+  position:relative;
+}
+.eff-8{
+  width:200px;
+  height:50px;
+  border:70px solid #4db6ac;
+  position:absolute;
+  transition:all .5s ease;
+  z-index:1;
+  box-sizing:border-box;
+}
+.button-8:hover .eff-8{
+  border:0px solid #4db6ac;
+}
+.button-8:hover a{
+  color:#4db6ac;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------------
+   bolockBの範囲
+------------------------------------------------ */
+html body div.container.blockB div.blockB-inner h1 {
+    font-family: 'Heebo', sans-serif;
+	text-align: center;
+	letter-spacing: -0.02em;
+	text-align: center;
+    text-align: -webkit-center;
+    text-align: -moz-center;
+}
+html body div.container.blockB div.blockB-inner h1:after {
+    content: "";
+    width: 50px;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #4db6ac;
+	text-align: center;
+}
+div.container.blockB div.blockB-inner p {
+    text-align: center;
+}
+html body div.container.blockB div.blockB-inner div.row {
+    margin-bottom: 40px;
+}
+
+
+
