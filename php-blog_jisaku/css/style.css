@@ -1,0 +1,114 @@
+body{
+}
+ul {
+  width:100%;
+  float:left;
+  padding:0;
+}
+ul li {
+  width:auto;
+  list-style:none;
+  border:#756F61 2px solid;
+  font-weight:bold;
+}
+header {
+  width:100%;
+  background:#FCEB9D;
+  height:auto;
+  margin:0 auto;
+  padding:20px 0 0;
+  text-align:center;
+  float:left;
+}
+header .logo{
+  float:left;
+  width:20%;
+  margin:0;
+}
+nav{
+  background:#F7AABB;
+  float:left;
+  width:80%;
+  height:auto;
+  margin:0;
+}
+nav ul {
+  margin:5px 0;
+}
+nav ul li {
+  display:inline-block;
+  width:18%;
+  padding:10px 1%;
+  margin:5px 1%;
+}
+.wrap{
+  width:840px;
+  background:#AADAF2;
+  height:auto;
+  float:left;
+  margin:0 auto;
+}
+main {
+  background:#FFF;
+  float:left;
+  width:80%;
+  height:100%;
+  margin:0 auto;
+  text-align:center;
+}
+main h1{
+  text-align:left;
+  margin:0;
+  padding:10px 0px 10px 20px;
+}
+article{
+  background:#e4ebef;
+  text-align:left;
+  margin:0 15px 20px;
+  padding:15px;
+}
+.goTo{
+  padding: 0;
+  margin: 0;
+}
+aside{
+  background:#AADAF2;
+  float:left;
+  width:20%;
+  padding:0;
+  height:100%;
+  margin:0 auto;
+  text-align:center;
+}
+aside ul {
+  margin:5px 0;
+}
+aside ul li {
+  padding:10px;
+  margin:5px 15px 10px;
+  display:block;
+}
+footer {
+  background:#FCEB9D;
+  width:100%;
+  height:auto;
+  margin:0 auto;
+  padding:40px 0 0;
+  text-align:center;
+  clear:both;
+}
+footer small{
+  display:block;
+  margin:0 auto;
+}
+footer adress{
+  display:block;
+  margin:0 auto;
+}
+
+@media (max-width: 839px) {
+.wrap{
+    margin:0 auto;
+    width:98%;
+  }
+}
