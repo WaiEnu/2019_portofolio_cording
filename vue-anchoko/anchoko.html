@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>メール作成あんちょこ君</title>
+<!-- Vue.js を読み込む -->
+</head>
+<body>
+
+<div id="app">
+	<h1>メール作成あんちょこ君</h1>
+	<!-- Categories -->
+	<label for="category">Category</label>
+	<select name="category" v-model="selectedCategory" v-on:change="fetchMsgs">
+		<option v-for="category in categories" v-bind:value="category.id">
+			{{ category.name }}
+		</option>
+	</select>
+	<!-- Message -->
+	<div class="inner">
+		<h2>Message<h2>
+		<div>
+			{{ message }}
+		</div>
+	</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/anchoko.js"></script>
+</body>
+</html>
