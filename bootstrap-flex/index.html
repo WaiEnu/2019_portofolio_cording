@@ -4,11 +4,10 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Untitled Document</title>
+<title>Bootstrap flex</title>
 <!-- Bootstrap -->
 <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
 <link href="css/index.css" rel="stylesheet" type="text/css">
-<link href="css/category.css" rel="stylesheet" type="text/css">
 </head>
 <body><!-- body code goes here -->
 
@@ -19,7 +18,7 @@
 	<a class="Business" data-filter="Business" href="#" role="button">Business</a>
 	<a class="E-Commerce" data-filter="E-Commerce" href="#" role="button">E-Commerce</a>
 	<a class="magazine" data-filter="magazine" href="#" role="button">magazine</a>
-	<a class="red" data-filter="red" href="#" role="button">portfolio</a>
+	<a class="portfolio" data-filter="portfolio" href="#" role="button">portfolio</a>
 </div>
 <div class="container">
 	<div class="row boxes d-flex justify-content-sm-center justify-content-md-start">
@@ -51,20 +50,97 @@
 					<div class="item-image"><img src="images/b02.jpg" class="img-fluid"/></div>
 					<div class="item-text">
 						<h3>E-Commerce</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem sint molestiae temporibus. Perspiciatis fugiat, facilis a repudiandae sunt. Cumque consequatur ipsam modi alias cum dolorem similique nobis tenetur ad, facilis quas, dolor, repudiandae illum expedita!</p>
+						<p>Cumque consequatur ipsam modi alias cum dolorem similique nobis tenetur ad, facilis quas, dolor, repudiandae illum expedita!</p>
 					</div>
 				</div>
 			</a>
 		</div>
+			<div class="box col-xs-12 col-sm-10 col-md-6 col-lg-4" data-category="magazine">
+				<a class="magazine" href="#">
+					<div class="item h-100">
+						<div class="item-image"><img src="images/b02.jpg" class="img-fluid"/></div>
+						<div class="item-text">
+							<h3>Magazine</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem sint molestiae temporibus. Perspiciatis fugiat, facilis a repudiandae sunt. Cumque consequatur ipsam modi alias cum dolorem similique nobis tenetur ad, facilis quas, dolor, repudiandae illum expedita!</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="box col-xs-12 col-sm-10 col-md-6 col-lg-4" data-category="portfolio">
+				<a class="portfolio" href="#">
+					<div class="item h-100">
+						<div class="item-image"><img src="images/b02.jpg" class="img-fluid"/></div>
+						<div class="item-text">
+							<h3>portfolio</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem sint molestiae temporibus. Perspiciatis fugiat, facilis a repudiandae sunt. Cumque consequatur ipsam modi alias cum dolorem similique nobis tenetur ad, facilis quas, dolor, repudiandae illum expedita!</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="box col-xs-12 col-sm-10 col-md-6 col-lg-4" data-category="Blog">
+				<a class="Blog" href="#">
+					<div class="item h-100">
+						<div class="item-image"><img src="images/b02.jpg" class="img-fluid"/></div>
+						<div class="item-text">
+							<h3>Blog</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem sint molestiae temporibus. Perspiciatis fugiat, facilis a repudiandae sunt. Cumque consequatur ipsam modi alias cum dolorem similique nobis tenetur ad, facilis quas, dolor, repudiandae illum expedita!</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="box col-xs-12 col-sm-10 col-md-6 col-lg-4" data-category="Business">
+				<a class="Business" href="#">
+					<div class="item h-100">
+						<div class="item-image"><img src="images/b02.jpg" class="img-fluid"/></div>
+						<div class="item-text">
+							<h3>Business</h3>
+							<p>Lorem ipsum dolor sit amet, </p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="box col-xs-12 col-sm-10 col-md-6 col-lg-4" data-category="E-Commerce">
+				<a class="E-Commerce" href="#">
+					<div class="item h-100">
+						<div class="item-image"><img src="images/b02.jpg" class="img-fluid"/></div>
+						<div class="item-text">
+							<h3>E-Commerce</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem sint molestiae temporibus. Perspiciatis fugiat, facilis a repudiandae sunt. Cumque consequatur ipsam modi alias cum dolorem similique nobis tenetur ad, facilis quas, dolor, repudiandae illum expedita!</p>
+						</div>
+					</div>
+				</a>
+			</div>
+				<div class="box col-xs-12 col-sm-10 col-md-6 col-lg-4" data-category="magazine">
+					<a class="magazine" href="#">
+						<div class="item h-100">
+							<div class="item-image"><img src="images/b02.jpg" class="img-fluid"/></div>
+							<div class="item-text">
+								<h3>Magazine</h3>
+								<p>Lorem ipsum !</p>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="box col-xs-12 col-sm-10 col-md-6 col-lg-4" data-category="portfolio">
+					<a class="portfolio" href="#">
+						<div class="item h-100">
+							<div class="item-image"><img src="images/b02.jpg" class="img-fluid"/></div>
+							<div class="item-text">
+								<h3>portfolio</h3>
+								<p>Lorem ipsum dolor sit amet!</p>
+							</div>
+						</div>
+					</a>
+				</div>
 	</div><!-- boxesEND -->
 </div><!-- containerEND -->
 
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/category.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/tab.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/popper.min.js"></script> 
-<script src="js/bootstrap-4.0.0.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap-4.2.1.js"></script>
 </body>
 </html>
