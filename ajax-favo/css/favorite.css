@@ -2,6 +2,7 @@
 .wrap{
 	max-width:1110px;
 	margin:0 auto;
+	padding: 0 16px;
 }
 
 .link a{
@@ -20,10 +21,18 @@
 	align-content:flex-start;
 }
 
+.ditail{
+	width:75%;
+}
+
 .card{
 	width:23%;
 	text-align: left;
 	margin:1.5em auto;
+}
+
+.page .card{
+margin: 1.5em auto 1.5em 0;
 }
 
 .image{
