@@ -45,17 +45,7 @@ class Boids{
 	*/
 	appendBoids(length, x, y) {
 		let index = 0;
-		for (var i=0;i<length;i++){
-			this.boids.push({
-				x: Math.random() * this.view.width,
-				y: Math.random() * this.view.height,
-				vx: 0,
-				vy: 0,
-				color: this.getRandomColor()
-			});
-		}
-/**
-	this.appendTimer = setInterval(() => {
+		this.appendTimer = setInterval(() => {
 			if( length > 0 && index >= length ) {
 				clearInterval( this.appendTimer );
 				return;
@@ -68,7 +58,7 @@ class Boids{
 				color: this.getRandomColor()
 			});
 			++index;
-		}, 10);**/
+		}, 10);
 	}
 	/**
 	* シミュレーション
@@ -158,21 +148,21 @@ class Boids{
 	*整列・・・オブジェクトが他のオブジェクトと概ね同じ方向に飛ぶように速度と方向を合わせる
 	*/
 	alignment(index){
-	let average = {vx: 0, vy: 0};
-	let boidLength = this.boids.length;
+		let average = {vx: 0, vy: 0};
+		let boidLength = this.boids.length;
 
-	for( let i = 0; i < boidLength; i++ ) {
-		if( i === index ) {
-			continue;
+		for( let i = 0; i < boidLength; i++ ) {
+			if( i === index ) {
+				continue;
+			}
+			average.vx += this.boids[i].vx;
+			average.vy += this.boids[i].vy;
 		}
-		average.vx += this.boids[i].vx;
-		average.vy += this.boids[i].vy;
-	}
-	average.vx /= boidLength - 1;
-	average.vy /= boidLength - 1;
+		average.vx /= boidLength - 1;
+		average.vy /= boidLength - 1;
 
-	this.boids[index].vx += (average.vx - this.boids[index].vx) / 8;
-	this.boids[index].vy += (average.vy - this.boids[index].vy) / 8;
+		this.boids[index].vx += (average.vx - this.boids[index].vx) / 8;
+		this.boids[index].vy += (average.vy - this.boids[index].vy) / 8;
 	}
 	/**
 	*BOID間の距離の算出
