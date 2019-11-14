@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Quiz</title>
+</head>
+<body>
+  <main id="app">
+    <h1>三択クイズ</h1>
+    <hr>
+    <div v-if="HasResult">
+      <h2>問題</h2>
+      <div class="question">
+        <p v-if="isClear">
+          {{ clear }}
+        </p>
+        <p v-else>
+         {{ gameover }}
+        </p>
+      </div>
+      <h2>選択</h2>
+      <div class="answer">
+        <p v-if="isClear">Congraduation!</p>
+        <ul v-else>
+          <li>
+            <button type="button" @click="continueYes">Continue?</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div v-else>
+      <h2>問題</h2>
+      <div class="question">
+        <p>{{ question }}</p>
+     </div>
+      <h2>選択</h2>
+      <div class="answer">
+        <ul>
+          <li v-for="(item, i) in option" :key="item">
+            <button type="button" @click="quizSet(i)">{{ item }}</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+  new Vue({
+    el: "#app",
+    data: {
+      counter: 0,
+      HasResult:false,
+      isClear:false,
+      quiz: [
+        {text: "周りを見渡す",option: ["yes", "no"],collect: 0,gameover: "敵に食われた。",clear: "Next",endFlg: 0},
+        {text: "何かに気づく",option: ["近づく", "逃げる"],collect: 1,gameover: "敵に食われた。",clear: "Next",endFlg: 0},
+        {text: "食べ物を探す",option: ["匂いのする方", "音のする方"],collect: 0,gameover: "食べ物がみつからない。",clear: "Next",endFlg: 0},
+        {text: "魚が来たぞ。でっかいな。",option: ["近づく", "近づかない"],collect: 1,gameover: "魚に食われた。",clear: "Next",endFlg: 0},
+        {text: "ここになんか入口があるぞ",option: ["入る", "入らない"],collect: 1,gameover: "食虫植物の捕虫器だった。食われた",clear: "Next",endFlg: 0},
+        {text: "暖かくなってきた",option: ["移動", "寝る"],collect: 0,gameover: "ここ、温泉だった。熱くて生きられない。",clear: "Next",endFlg: 0},
+        {text: "水の流れが強くなってきた。流されるままに行こうか？",option: ["yes", "no"],collect: 1,gameover: "川岸に打ち上げられた。",clear: "Next",endFlg: 0},
+        {text: "逃げてばかりなので必殺技を考えよう。取り合えず角をはやす。",option: ["yes", "no"],collect: 1,gameover: "角をはやすのに二十四時間...。そのうちに食われた。",clear: "Next",endFlg: 0},
+        {text: "水の上には何があるんだろう...。行ってみる？",option: ["yes", "no"],collect: 0,gameover: "水中でしか生きられないの忘れてた。",clear: "Next",endFlg: 0},
+        {text: "寒くなってきた…冬眠する？",option: ["yes", "no"],collect: 1,gameover: "水が凍った。",clear:"そして、新天地へ...。",endFlg: 1}
+      ],
+      result:'',
+    },
+    computed: {
+      question:function() {
+        return this.quiz[this.counter].text;
+      },
+      option:function() {
+        return this.quiz[this.counter].option;
+      }
+    },
+    methods: {
+      quizSet:function(value) {
+        if (value === this.quiz[this.counter].collect) {
+          this.counter++;
+        } else{
+          this.HasResult=true;
+          if(this.quiz[this.counter].endFlg===1){ 
+            this.isClear=true;
+            this.clear = this.quiz[this.counter].clear;
+          }else{
+            this.gameover = this.quiz[this.counter].gameover;
+          }
+          this.counter=0;
+        }
+      },
+      continueYes:function() {
+        this.HasResult=false;
+        this.isClear=false;
+        this.counter=0;
+      }
+    },
+  });
+  </script>
+</body>
+</html>
