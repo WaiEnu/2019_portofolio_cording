@@ -13,32 +13,34 @@
 <body>
   <main id="app">
     <h1>生きることは選択の連続だーーー</h1>
-    <hr />
-    <h2>ミッション:ミジンコ君を生き残らせろ</h2>
     <div class="question">
-      <p v-if="isClear"> {{ message }}</p>
-      <p v-if="isGameOver">{{ gameover }}</p>
-      <p v-else>{{ question }}</p>
+      <h2>ミッション:ミジンコ君を生き残らせろ</h2>
+      <div class="message" v-if="isClear">
+        <p>{{ question }}</p>
+      </div>
+      <div class="message" v-if="isGameOver">
+        <p>{{ gameover }}</p>
+      </div>
+      <div class="message" v-if="hasNext">
+        <p>{{ question }}</p>
+      </div>
     </div>
     <h2 id="score">スコア:{{score}}</h2>
     <div class="answer">
       <div class="options" v-if="isGameOver">
-        <p>Continue?</p>
         <div class="form">
-          <button type="button" @click="continueYes">yes</button>
-          <button type="button" @click="continueNo">no</button>
+          <button type="button" @click="continueYes">Continue?</button>
         </div>
       </div>
       <div class="options" v-else>
         <div class="form" v-if="isClear">
-          <span v-for="(item, i) in option" :key="item">{{ item }}</span>
+          <button v-for="(item, i) in option" :key="item" type="button" @click="continueNo">{{ item }}</button>
         </div>
         <div class="form" v-else>
           <button v-for="(item, i) in option" :key="item" type="button" @click="quizSet(i)">{{ item }}</button>
         </div>
       </div>
     </div>
-    <hr />
   </main>
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -51,13 +53,13 @@
       score:0,
       isGameOver: false,
       isClear: false,
+      hasNext: true,
       quiz: [
         {
           text: "周りを見渡す",
           option: ["yes", "no"],
           collect: 0,
           gameover: "敵に食われた。",
-          score: 0,
           endFlg: 0
         },
         {
@@ -65,7 +67,6 @@
           option: ["近づく", "逃げる"],
           collect: 1,
           gameover: "敵に食われた。",
-          score: 10,
           endFlg: 0
         },
         {
@@ -73,7 +74,6 @@
           option: ["匂いのする方", "音のする方"],
           collect: 0,
           gameover: "食べ物がみつからない。",
-          score: 20,
           endFlg: 0
         },
         {
@@ -81,7 +81,6 @@
           option: ["近づく", "近づかない"],
           collect: 1,
           gameover: "魚に食われた。",
-          score: 30,
           endFlg: 0
         },
         {
@@ -89,7 +88,6 @@
           option: ["入る", "入らない"],
           collect: 1,
           gameover: "食虫植物の捕虫器だった。食われた",
-          score: 40,
           endFlg: 0
         },
         {
@@ -97,7 +95,6 @@
           option: ["移動", "寝る"],
           collect: 0,
           gameover: "ここ、温泉だった。熱くて生きられない。",
-          score: 50,
           endFlg: 0
         },
         {
@@ -105,7 +102,6 @@
           option: ["yes", "no"],
           collect: 1,
           gameover: "川岸に打ち上げられた。",
-          score: 60,
           endFlg: 0
         },
         {
@@ -113,7 +109,6 @@
           option: ["yes", "no"],
           collect: 1,
           gameover: "角をはやすのに二十四時間...。そのうちに食われた。",
-          clear: 70,
           endFlg: 0
         },
         {
@@ -121,7 +116,6 @@
           option: ["yes", "no"],
           collect: 1,
           gameover: "水中でしか生きられないの忘れてた。",
-          score: 80,
           endFlg: 0
         },
         {
@@ -129,7 +123,6 @@
           option: ["yes", "no"],
           collect: 1,
           gameover: "水が凍った。",
-          score: 90,
           endFlg: 0
         },
         {
@@ -137,7 +130,6 @@
           option: ["Congraduation!"],
           collect: 1,
           gameover: "",
-          score: 100,
           endFlg: 1
         }
       ],
@@ -153,26 +145,25 @@
     methods: {
       quizSet: function(value) {
         if (value === this.quiz[this.counter].collect) {
+          this.score = this.score+10;
           this.counter++;
-          this.score = this.quiz[this.counter].score;
           if (this.quiz[this.counter].endFlg === 1) {
             this.isClear = true;
+            this.hasNext = false;
           }
         } else {
           this.isGameOver = true;
+          this.hasNext = false;
           this.gameover = this.quiz[this.counter].gameover;
           this.counter = 0;
-          this.score = this.quiz[this.counter].score;
         }
       },
       continueYes: function() {
         this.isGameOver = false;
         this.isClear = false;
-        this.isForm=false;
+        this.hasNext = true;
         this.score = 0;
         this.counter = 0;
-      },
-      continueNo: function() {
       },
     }
   });
