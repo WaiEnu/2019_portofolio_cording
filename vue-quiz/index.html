@@ -41,7 +41,7 @@
       <div class="form" v-if="isForm">
         <div class="options">
           <div class="form" v-if="isGameOver">
-            <button type="button" @click="continueYes">終わり</button>
+            <button type="button" @click="allOver">終わり</button>
           </div>
         </div>
       </div>
@@ -211,8 +211,16 @@
         this.counter = 0;
       },
       continueNo: function() {
-        this.isInit= false;
         this.isForm=true;
+      },
+      allOver: function() {
+        this.isInit=true;
+        this.isGameOver = false;
+        this.isClear = false;
+        this.hasNext = true;
+        this.isForm=false;
+        this.score = 0;
+        this.counter = 0;
       },
     }
   });
