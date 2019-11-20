@@ -26,15 +26,12 @@
         <h2>ミッション:ミジンコ君を生き残らせろ</h2>
         <h3><span id="score">スコア:{{score}}</span>&nbsp;&nbsp;<span id="score">プレイヤー:{{name}}</span></h3>
         <div class="message" v-if="isClear">
-          <p><img src="image/game_clear.png" alt="クリア！"></p>
           <p>{{ question }}</p>
         </div>
         <div class="message" v-if="isGameOver">
-          <p><img src="image/mijinko_kun_is_dead.png" alt="ミジンコ君(死亡)"></p>
           <p>{{ gameover }}</p>
         </div>
         <div class="message" v-if="hasNext">
-          <p><img src="image/mijinko_kun.png" alt="ミジンコ君"></p>
           <p>{{ question }}</p>
         </div>
       </div>
