@@ -166,22 +166,6 @@
       option: function() {
         return this.quiz[this.counter].option;
       },
-      resultData: function() {
-        var result= this.result;
-        var table='';
-        if(result){
-          table+='<table>';
-          for(var i=0;i<result.length;i++){
-              var r = result[i];
-              table +='<tr>'
-              + '<td>' + r.choise + '<input type="hidden" name="result' + i + '" value='+ r.choise + '>' + '</td>'
-              + '<td>' + r.result + '</td>'
-              + '</tr>';
-          }
-          table+='</table>';
-        }
-        return table;
-      }
     },
     methods: {
       start: function(){
