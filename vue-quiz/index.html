@@ -11,49 +11,74 @@
   </style>
 </head>
 <body>
-  <main id="app">
-    <h1>生きることは選択の連続だーーー</h1>
-    <div class="question">
-      <h2>ミッション:ミジンコ君を生き残らせろ</h2>
-      <div class="message" v-if="isClear">
-        <p>{{ question }}</p>
+<main>
+  <div id="app">
+    <div v-if="isInit">
+      <form action="input.php" method="post">
+        <div>お名前: <input type="text" v-model="name"></div>
+        <div>EMAIL: <input type="text" v-model="email"></div>
+            <button type="button" @click="start">始める</button>
+      </form>
+    </div>
+    <div v-else>
+      <h1>生きることは選択の連続だーーー</h1>
+      <div class="question">
+        <h2>ミッション:ミジンコ君を生き残らせろ</h2>
+        <h3><span id="score">スコア:{{score}}</span>&nbsp;&nbsp;<span id="score">プレイヤー:{{name}}</span></h3>
+        <div class="message" v-if="isClear">
+          <p><img src="image/game_clear.png" alt="クリア！"></p>
+          <p>{{ question }}</p>
+        </div>
+        <div class="message" v-if="isGameOver">
+          <p><img src="image/mijinko_kun_is_dead.png" alt="ミジンコ君(死亡)"></p>
+          <p>{{ gameover }}</p>
+        </div>
+        <div class="message" v-if="hasNext">
+          <p><img src="image/mijinko_kun.png" alt="ミジンコ君"></p>
+          <p>{{ question }}</p>
+        </div>
       </div>
-      <div class="message" v-if="isGameOver">
-        <p>{{ gameover }}</p>
+      <div class="form" v-if="isForm">
+        <div class="options">
+          <div class="form" v-if="isGameOver">
+            <button type="button" @click="allOver">終わり</button>
+          </div>
+        </div>
       </div>
-      <div class="message" v-if="hasNext">
-        <p>{{ question }}</p>
+      <div class="answer" v-else>
+        <div class="options">
+          <p v-if="isGameOver">Continue?</p>
+          <div class="form" v-if="isGameOver">
+            <button type="button" @click="continueYes">yes</button>
+            <button type="button" @click="continueNo">no</button>
+          </div>
+          <div class="form" v-if="isClear">
+            <button v-for="(item, i) in option" :key="item" type="button" @click="continueNo">{{ item }}</button>
+          </div>
+          <div class="form" v-if="hasNext">
+            <button v-for="(item, i) in option" :key="item" type="button" @click="quizSet(i)">{{ item }}</button>
+          </div>
+        </div>
       </div>
     </div>
-    <h2 id="score">スコア:{{score}}</h2>
-    <div class="answer">
-      <div class="options" v-if="isGameOver">
-        <div class="form">
-          <button type="button" @click="continueYes">Continue?</button>
-        </div>
-      </div>
-      <div class="options" v-else>
-        <div class="form" v-if="isClear">
-          <button v-for="(item, i) in option" :key="item" type="button" @click="continueNo">{{ item }}</button>
-        </div>
-        <div class="form" v-else>
-          <button v-for="(item, i) in option" :key="item" type="button" @click="quizSet(i)">{{ item }}</button>
-        </div>
-      </div>
-    </div>
-  </main>
+  </div>
+</main>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
   new Vue({
     el: "#app",
     data: {
-      counter:0,
-      score:0,
+      name:"名無しさん",
+      email:"sample@email.jp",
+      counter: 0,
+      score: 0,
+      isInit: true,
       isGameOver: false,
       isClear: false,
       hasNext: true,
+      isForm: false,
       quiz: [
         {
           text: "周りを見渡す",
@@ -140,9 +165,28 @@
       },
       option: function() {
         return this.quiz[this.counter].option;
+      },
+      resultData: function() {
+        var result= this.result;
+        var table='';
+        if(result){
+          table+='<table>';
+          for(var i=0;i<result.length;i++){
+              var r = result[i];
+              table +='<tr>'
+              + '<td>' + r.choise + '<input type="hidden" name="result' + i + '" value='+ r.choise + '>' + '</td>'
+              + '<td>' + r.result + '</td>'
+              + '</tr>';
+          }
+          table+='</table>';
+        }
+        return table;
       }
     },
     methods: {
+      start: function(){
+        this.isInit= false;
+      },
       quizSet: function(value) {
         if (value === this.quiz[this.counter].collect) {
           this.score = this.score+10;
@@ -162,11 +206,24 @@
         this.isGameOver = false;
         this.isClear = false;
         this.hasNext = true;
+        this.isForm=false;
+        this.score = 0;
+        this.counter = 0;
+      },
+      continueNo: function() {
+        this.isForm=true;
+      },
+      allOver: function() {
+        this.isInit=true;
+        this.isGameOver = false;
+        this.isClear = false;
+        this.hasNext = true;
+        this.isForm=false;
         this.score = 0;
         this.counter = 0;
       },
     }
   });
-  </script>
+</script>
 </body>
 </html>
