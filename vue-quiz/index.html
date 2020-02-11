@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="style.css" />
   <title>Quiz</title>
   <style>
     .options button {display: inline-block;margin: 8px;}
@@ -26,12 +26,15 @@
         <h2>ミッション:ミジンコ君を生き残らせろ</h2>
         <h3><span id="score">スコア:{{score}}</span>&nbsp;&nbsp;<span id="score">プレイヤー:{{name}}</span></h3>
         <div class="message" v-if="isClear">
+          <p><img src="image/game_clear.png" alt="クリア！"></p>
           <p>{{ question }}</p>
         </div>
         <div class="message" v-if="isGameOver">
+          <p><img src="image/mijinko_kun_is_dead.png" alt="ミジンコ君(死亡)"></p>
           <p>{{ gameover }}</p>
         </div>
         <div class="message" v-if="hasNext">
+          <p><img src="image/mijinko_kun.png" alt="ミジンコ君"></p>
           <p>{{ question }}</p>
         </div>
       </div>
@@ -50,7 +53,7 @@
             <button type="button" @click="continueNo">no</button>
           </div>
           <div class="form" v-if="isClear">
-            <button v-for="(item, i) in option" :key="item" type="button" @click="continueNo">{{ item }}</button>
+            <button v-for="(item, i) in option" :key="item" type="button" @click="allOver">{{ item }}</button>
           </div>
           <div class="form" v-if="hasNext">
             <button v-for="(item, i) in option" :key="item" type="button" @click="quizSet(i)">{{ item }}</button>
