@@ -61,3 +61,6 @@ main #app p {
   width: 200px;
   height: auto;
 }
+.options button {
+  display: inline-block;margin: 8px;
+}
