@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- PWA -->
+  <!--https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/?hl=ja-->
+  <meta name="theme-color" content="#F8F7F8">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./favicon.ico">
+  <script>
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('./sw.js');
+  }
+  </script>
+  <!-- PWA -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Marble</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<main>
+  <article class="marble">
+  <header name="hzinpform" id ="hzoneinp">
+    <div class="input">
+        <h1>tab</h1>
+    </div> 
+    <div class="form">
+      <div class="input">
+        <label for ="spectype">タイプ
+        <select name="spectype" id="disp_spectype">
+            <option value="F" selected ="selected">F</option>
+            <option value="G">G</option>
+            <option value="K">K</option>
+            <option value="M">M</option>
+        </select></label>
+      </div>
+      <div class="input">
+        <label for ="disp_ltmaginp">光度<input type="text" size="3" id="disp_ltmaginp" disabled>太陽光度
+          <input type="range" name="ltmaginp" min="1" max="10" value="5">
+        </label>
+      </div>
+      <div class="input">
+        <label for ="disp_orbradinp">軌道長半径<input type="text" size="2" id="disp_orbradinp" disabled>天文単位
+          <input type="range" name="orbradinp" min="1" max="20" value="5">
+        </label>
+      </div>
+      <div class="input">
+        <label for ="eccinp">離心率<input type="text" size="2" id="disp_eccinp" disabled>
+          <input type="range" name="eccinp" min="0" max="9" value="0">
+        </label>
+      </div>
+    </div>
+  </header>
+  <div class="canvas">
+    <div id="disp">
+      <canvas id="nzone_disp" width="400" height="400">HTML5を使っています。HTML5対応のブラウザで見てください</canvas>
+      <canvas id="orbit_disp" width="800" height="400">HTML5を使っています。HTML5対応のブラウザで見てください</canvas>
+      <canvas id="planet_disp" width="800" height="460">HTML5を使っています。HTML5対応のブラウザで見てください</canvas>
+    </div>
+    <p>H Zone&nbsp;<span id="hzrngdsp"></span></p>
+  </div>
+</article>
+</main>
+
+<!-- javascript -->
+<!--** jQuery START **-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!--** jQuery END **-->
+
+<!--** Firebase START **-->
+<!--** 以下Firebase **-->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAU_4Flgoowz9LiPzk9-R5LgXppge6Nm28",
+    authDomain: "labs-b6539.firebaseapp.com",
+    databaseURL: "https://labs-b6539.firebaseio.com",
+    projectId: "labs-b6539",
+    storageBucket: "labs-b6539.appspot.com",
+    messagingSenderId: "841761149731",
+    appId: "1:841761149731:web:25486788596147190e7296",
+    measurementId: "G-3LZG6V2L2W"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  const newPostRef = firebase.database().ref();//
+</script>
+<!--** Firebase END **-->
+
+<script src="js/hbzonecalc.js"></script>
+<script src="js/main.js"></script>
+<script src="js/planet.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+html,body{
+  width: 100%;
+  height:100%;
+  margin: 0;
+  padding: 0;
+  background: #1b1b1b;
+}
+select, input, textarea, button { 
+  vertical-align:middle; 
+  position:relative; 
+  margin: 0 0 0 0;
+  *margin-right:3px; 
+  top:-1px;  
+}
+
+main {
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+article{
+  width: 100%;
+  margin: 8px auto;
+  padding: 0;
+  background: #9e9e9e;
+}
+header{
+  width: auto;
+  background: #d8dee4;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items:center;
+}
+.form{
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items:center;
+}
+/**
+.form label{
+  display: inline-block;
+  margin:0 16px 0 4px;
+}
+**/
+.form .input{
+  margin: 8px;
+}
+input[type="text"] {
+  width: 2rem;
+}
+.canvas{
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.canvas #disp{
+  position: relative;
+  margin:  6px auto 32px;
+  padding: 0;
+  width: 800px;
+  height: 432px;
+}
+.canvas canvas{
+  position: absolute;
+}
+.canvas canvas#nzone_disp{
+  top:30px;
+  left:200px;
+  background: #1d0956;
+}
+.canvas canvas#orbit_disp{
+  top:30px;
+  left:0;
+  background: transparent;
+}
+.canvas canvas#planet_disp{
+  top:0;
+  left:0;
+  background: transparent;
+}
+table#babel,table#babel td,table#babel th {
+  border: 2px #000 solid;
+  }
