@@ -1,5 +1,6 @@
 module.exports = {
+    publicPath: '/vueUI/ui/',
     outputDir: 'docs',
-    assetsDir: './',
-    publicPath: './'
+    filenameHashing: false,
+    productionSourceMap: false,
   }
