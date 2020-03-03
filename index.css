@@ -29,23 +29,27 @@ section{
   margin-right: 20px;
   margin-bottom: 20px;
   color: #4db6ac;
+  position: relative;
 }
 
 .boxes {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .boxes article {
-  margin: 0 0px 10px 0px;
-  padding: 10px;
-  line-height: 60px;
+  margin: 0;
+  padding: 1em;
+  line-height: 1em;
+  box-sizing: border-box;
 }
 
 .item {
-  padding: 1em;
+  margin: 0;
+  padding: 2em 1em;
   border: 1px solid #ccc;
+  background: #fff;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -64,15 +68,20 @@ section{
   border-color: #333 transparent transparent transparent;
 }
 
-.is-animated {
-  animation: .6s zoom-in;
+.bounce-enter-active {
+  animation: bounce-in .5s;
 }
-
-@keyframes zoom-in {
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
   0% {
-   transform: scale(.1);
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
   }
   100% {
-    transform: none;
+    transform: scale(1);
   }
 }

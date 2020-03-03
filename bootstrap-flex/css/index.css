@@ -30,12 +30,12 @@ h2 {
   margin-bottom: 20px;
 }
 
-.boxes {
 /*
+.boxes {
   display: flex;
   flex-wrap: wrap;
-  */
 }
+  */
 
 .boxes .box {
   display: flex;
