@@ -1,0 +1,109 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+html,body{
+  height:100%;
+}
+#app{
+  height:100%;
+  width: 100%;
+  background-color:#203b3e;
+}
+.cnt{
+  width: 100%;
+  height: 90vh;
+  max-width: 4000px;
+  max-height: 1000px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background: url("img/BG.png") no-repeat;
+  background-size: cover;
+}
+.paused,
+.walker{
+  position: absolute;
+  bottom: 24px;
+  left: 48%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  z-index: 10;
+}
+.paused{
+  background: url("img/pause.png") 0 0 no-repeat;
+  animation-play-state: paused;
+}
+.walker{
+  background: url("img/walk.png") 0 0 no-repeat;
+  animation: walk-cycle 1s steps(6, end) infinite;
+}
+@keyframes walk-cycle {  
+  to {
+    background-position: 0 -1200px;
+  }
+}
+
+button{
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 10;
+  cursor: pointer;
+  font-size: 1.0rem;
+  padding: .25rem .5rem;
+  position: absolute;
+}
+
+.bg{
+  width: 100%;
+  height: 101%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: url("img/aquarium.png") 0 0 repeat-x;
+  background-size: cover;
+  margin-top: -1px;
+}
+.bg{
+  animation: parallax_bg linear 180s infinite;
+}
+@keyframes parallax_bg {  
+  to {
+    background-position: -4000px 0;
+  }
+}
+.bg.stop{
+  animation-play-state: paused;
+}
+
+.mg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: url("img/fish.png") 0 0 repeat-x;
+  background-size: auto 100%;
+}
+.mg{
+  animation: parallax_mg linear 200s infinite;
+}
+@keyframes parallax_mg {
+  to {
+    background-position: -4000px 0;
+  }
+}
+.mg.stop{
+  animation-play-state: paused;
+}

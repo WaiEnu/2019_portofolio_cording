@@ -14,27 +14,17 @@
 
 <section class="topView">
 <b-jumbotron header="sNaOH Program Works">
-  <h1>Portofolio</h1>
-</b-jumbotron>
-</section>
-
-<section id="about">
-<b-jumbotron header="">
-  <h5>sNaOH</h5>
-  <p>本業：プログラマー</p>
-  <h5>これまでの経歴</h5>
+  <h5>経歴</h5>
   <p>生物学系学部卒→IT系勤務</p>
   <p>Java→C#(テスト)→Webデザイン(HTML,CSS,JQuery,あとphotoshopとIllustlatorを少々)→Wardpress開発</p>
 </b-jumbotron>
 </section>
 
-<section id="works">
-<b-jumbotron header="">
-  <h5>Works</h5>
-  <p>これまでの実績</p>
-  <p>仕事で作ったものとか、練習とか</p>
+<section id="about">
+<b-jumbotron header="Portofolio">
+  <h5>作品集</h5>
+  <p>仕事や練習で作ったもの</p>
   <p>主にフロントエンド<br>HTML+css+JQuery コーディング中心</p>
-</b-jumbotron>
 <div class ="works">
   <div class="cta filter">
     <a v-for="item in list" 
@@ -195,12 +185,20 @@
               </div>
             </article>
           </transition>
+          <transition name="bounce">
+            <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(5)">
+              <div class="item h-100">
+                <a href ="aquarium_walk/index.html" target="_blank">Aquarium Walk</a>
+              </div>
+            </article>
+          </transition>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+</b-jumbotron>
 </section>
 
 </div>
