@@ -6,7 +6,7 @@
 	position: relative;
 }
 
-.display-inner>img{
+.display>div>img{
 	max-width: 800px;
 	max-height: 400px;
 	overflow: hidden;
