@@ -6,7 +6,7 @@
 	position: relative;
 }
 
-.display>div>img{
+.display .map{
 	max-width: 800px;
 	max-height: 400px;
 	overflow: hidden;
