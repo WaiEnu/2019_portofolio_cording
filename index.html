@@ -10,13 +10,15 @@
 <link href="index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<section id="topView">
-<b-jumbotron header="Portofolio">
-  <h5>経歴</h5>
-  <p>生物学系学部卒→IT系勤務</p>
-  <p>Java→C#(テスト)→Webデザイン(HTML,CSS,JQuery,あとphotoshopとIllustlatorを少々)→Wardpress開発</p>
-  <h5>作品集</h5>
-  <p>主にフロントエンド<br>HTML+css+JQuery コーディング中心</p>
+
+<div id="app"><section id="topView"><b-jumbotron header="Portofolio">
+
+<h5>経歴</h5>
+<p>生物学系学部卒→IT系勤務</p>
+<p>Java→C#(テスト)→Webデザイン(HTML,CSS,JQuery,あとphotoshopとIllustlatorを少々)→Wardpress開発</p>
+<h5>作品集</h5>
+<p>主にフロントエンド<br>HTML+css+JQuery コーディング中心</p>
+
 <div class ="works">
   <div class="cta filter">
     <a v-for="item in list" 
@@ -206,10 +208,9 @@
     </div>
   </div>
 </div>
-</b-jumbotron>
-</section>
 
-</div>
+</b-jumbotron></section></div>
+
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
 <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
