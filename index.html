@@ -11,7 +11,9 @@
 </head>
 <body>
 
-<div id="app"><section id="topView"><b-jumbotron header="Portofolio">
+<div id="app">
+<section id="topView">
+<b-jumbotron header="Portofolio">
 
 <h5>経歴</h5>
 <p>生物学系学部卒→IT系勤務</p>
@@ -20,196 +22,201 @@
 <p>主にフロントエンド<br>HTML+css+JQuery コーディング中心</p>
 
 <div class ="works">
-  <div class="cta filter">
-    <a v-for="item in list" 
-      @click="changeTab(item.id)" 
-      @keyup.enter="changeTab(item.id)"
-      class="filter"
-      :class="{active:active(item.id)}">{{ item.label }}</a>
-  </div>
-  <div class ="containor">
-    <div class="row">
-      <div class="col-12">
-        <div class="box">
-          <div class="boxes">
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(8)">
-              <div class="item h-100">
-                <a href ="javascript:void(0)
-                " target="_blank">DNA自動作成・解析</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(5)">
-              <div class="item h-100">
-                <a href ="https://troublecentral.herokuapp.com/
-                " target="_blank">DNA playground</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(1)">
-              <div class="item h-100">
-                <a href ="ajax-favo\pages.html" target="_blank">お気に入り登録</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(1)">
-              <div class="item h-100">
-                <a href ="ajax-json/sample.html" target="_blank">jsonでお知らせ表示</a>
-              </div>
-            </article>
-          </transition>
-          <!-- <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(1)">
-              <div class="item h-100">
-                <a href ="ajax-map/main.html" target="_blank">ajax世界地図</a>
-              </div>
-            </article>
-          </transition> -->
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(2)">
-              <div class="item h-100">
-                <a href ="bootstrap-flex/index.html" target="_blank">gallery1</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(2)">
-              <div class="item h-100">
-                <a href ="bootstrap-gallery/tags.html" target="_blank">gallery2</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(3)">
-              <div class="item h-100">
-                <a href ="css-button/test.html" target="_blank">button efect</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(3)">
-              <div class="item h-100">
-                <a href ="css-textslide/animation.html" target="_blank">Text Slide</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(4)">
-              <div class="item h-100">
-                <a href ="jquery-bg_slide/bgslide.html" target="_blank">BG Slide</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(4)">
-              <div class="item h-100">
-                <a href ="jquery-clip/CSS-Clip.html" target="_blank">image-clip</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(4)">
-              <div class="item h-100">
-                <a href ="jquery-draganddrop/draganddrop.html" target="_blank">三目並べもどき</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(4)">
-              <div class="item h-100">
-                <a href ="jquery-efect/eff.html" target="_blank">jQuery練習</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(4)">
-              <div class="item h-100">
-                <a href ="jquery-newsticker/trend.html" target="_blank">Newsticker</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(4)">
-              <div class="item h-100">
-                <a href ="jquery-slider/memo.html" target="_blank">スライダー</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(5)">
-              <div class="item h-100">
-                <a href ="vue-anchoko\anchoko.html" target="_blank">あんちょこ君</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(5)">
-              <div class="item h-100">
-                <a href ="vue-quiz\index.html" target="_blank">死にゲー</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(6)">
-              <div class="item h-100">
-                <a href ="https://github.com/WaiEnu/2019_portofolio_cording/tree/master/php-blog_jisaku" target="_blank">自作ブログ</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(7)">
-              <div class="item h-100">
-                <a href ="javascript-BOID/BOID.html" target="_blank">BOIDモデル</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(7)">
-              <div class="item h-100">
-                <a href ="javascript-langtonsAnt/Langton's_ant.html" target="_blank">ラングトンの蟻</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(7)">
-              <div class="item h-100">
-                <a href ="javascript-lifegame/LifeGame.html" target="_blank">ライフゲーム</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(7)">
-              <div class="item h-100">
-                <a href ="javascript-dahune/dahune.html" target="_blank">ダフネの月(anime)</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(7)">
-              <div class="item h-100">
-                <a href ="javascript-marble/index.html" target="_blank">ライカはビー玉の中</a>
-              </div>
-            </article>
-          </transition>
-          <transition name="bounce">
-            <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(5)">
-              <div class="item h-100">
-                <a href ="aquarium_walk/index.html" target="_blank">Aquarium Walk</a>
-              </div>
-            </article>
-          </transition>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+<div class="cta filter">
+  <a v-for="item in list" 
+    @click="changeTab(item.id)" 
+    @keyup.enter="changeTab(item.id)"
+    class="filter"
+    :class="{active:active(item.id)}">{{ item.label }}</a>
 </div>
 
-</b-jumbotron></section></div>
+<div class ="containor">
+<div class="row">
+<div class="col-12">
+<div class="box">
+<div class="boxes">
+
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(8)">
+    <div class="item h-100">
+      <a href ="javascript:void(0)" target="_blank">DNA自動作成・解析</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(5)">
+    <div class="item h-100">
+      <a href ="https://troublecentral.herokuapp.com/" target="_blank">DNA playground</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(1)">
+    <div class="item h-100">
+      <a href ="ajax-favo\pages.html" target="_blank">お気に入り登録</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(1)">
+    <div class="item h-100">
+      <a href ="ajax-json/sample.html" target="_blank">jsonでお知らせ表示</a>
+    </div>
+  </article>
+</transition>
+<!-- <transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(1)">
+    <div class="item h-100">
+      <a href ="ajax-map/main.html" target="_blank">ajax世界地図</a>
+    </div>
+  </article>
+</transition> -->
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(2)">
+    <div class="item h-100">
+      <a href ="bootstrap-flex/index.html" target="_blank">gallery1</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(2)">
+    <div class="item h-100">
+      <a href ="bootstrap-gallery/tags.html" target="_blank">gallery2</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(3)">
+    <div class="item h-100">
+      <a href ="css-button/test.html" target="_blank">button efect</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(3)">
+    <div class="item h-100">
+      <a href ="css-textslide/animation.html" target="_blank">Text Slide</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(4)">
+    <div class="item h-100">
+      <a href ="jquery-bg_slide/bgslide.html" target="_blank">BG Slide</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(4)">
+    <div class="item h-100">
+      <a href ="jquery-clip/CSS-Clip.html" target="_blank">image-clip</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(4)">
+    <div class="item h-100">
+      <a href ="jquery-draganddrop/draganddrop.html" target="_blank">三目並べもどき</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6" v-if="tab(4)">
+    <div class="item h-100">
+      <a href ="jquery-efect/eff.html" target="_blank">jQuery練習</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(4)">
+    <div class="item h-100">
+      <a href ="jquery-newsticker/trend.html" target="_blank">Newsticker</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(4)">
+    <div class="item h-100">
+      <a href ="jquery-slider/memo.html" target="_blank">スライダー</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(5)">
+    <div class="item h-100">
+      <a href ="vue-anchoko\anchoko.html" target="_blank">あんちょこ君</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(5)">
+    <div class="item h-100">
+      <a href ="vue-quiz\index.html" target="_blank">死にゲー</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(6)">
+    <div class="item h-100">
+      <a href ="https://github.com/WaiEnu/2019_portofolio_cording/tree/master/php-blog_jisaku" target="_blank">自作ブログ</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(7)">
+    <div class="item h-100">
+      <a href ="javascript-BOID/BOID.html" target="_blank">BOIDモデル</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(7)">
+    <div class="item h-100">
+      <a href ="javascript-langtonsAnt/Langton's_ant.html" target="_blank">ラングトンの蟻</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(7)">
+    <div class="item h-100">
+      <a href ="javascript-lifegame/LifeGame.html" target="_blank">ライフゲーム</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(7)">
+    <div class="item h-100">
+      <a href ="javascript-dahune/dahune.html" target="_blank">ダフネの月(anime)</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(7)">
+    <div class="item h-100">
+      <a href ="javascript-marble/index.html" target="_blank">ライカはビー玉の中</a>
+    </div>
+  </article>
+</transition>
+<transition name="bounce">
+  <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(5)">
+    <div class="item h-100">
+      <a href ="aquarium_walk/index.html" target="_blank">Aquarium Walk</a>
+    </div>
+  </article>
+</transition>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</b-jumbotron>
+</section>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
