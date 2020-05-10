@@ -1,4 +1,4 @@
-
+var root='https://waienu.github.io/2019_portofolio_cording/ajax-favo/';
 var pageMax = 5;
 var get_favorite_pages = function(){
 	var out = [];
@@ -30,8 +30,8 @@ var get_favorite_pages_addto = function($div){
 		var obj_addto = {
 			id: $div.attr("id"),
 			title: $div.find(".title").text(),
-			url: $div.find(".title").attr("href"),
-			thumb: $div.find(".image img").attr("src"),
+			url: root + $div.find(".title").attr("href"),
+			thumb: root + $div.find(".image img").attr("src"),
 			thumb_alt: $div.find(".image img").attr("alt"),
 			label:$div.find(".label").attr("class"),
 			datetime: $.now()
