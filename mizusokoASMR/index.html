@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>mizusokoASMR</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="containor" v-if="init" v-on:click="player">     
+        <div class="cnt" id="bg">
+          <div class="cnt" id="mbg2"></div>
+          <div class="cnt" id="mbg">
+            <div class="cnt" id="light" v-bind:style="[isPause ? paused: run]"></div>
+          </div>
+        </div>
+        <div class="cnt" id="chara">
+          <div class="cnt" id="body" v-bind:style="[isPause ? paused: run]">
+            <div class="cnt" id="head"></div>
+          </div>
+          <div class="cnt" id="leftarm"></div>
+          <div class="cnt" id="rightarm"></div>
+          <div class="cnt" id="lamp">
+            <div class="cnt" id="blink" v-bind:style="[isPause ? paused: run]"></div>
+          </div>
+        </div>
+        <div class="cnt" id="pause" v-bind:style="[isPause ? paused_display: run_display]"></div>   
+      </div>
+      <div class="containor" v-else>
+        <div class="cnt" id="play" v-on:click="initPlayer"></div>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+  new Vue({
+    el: '#app',
+    data: {
+      sounds:'sound/underwater.mp3',
+      init: false,
+      isPause: false,
+      audio:"",
+      start:0,
+      paused: { 'animation-play-state': 'paused' },
+      run: { 'animation-play-state': 'running' },
+      paused_display: { display: 'block'},
+      run_display: { display: 'none'},
+    },
+    mounted: function () {
+      this.audio = new Audio(this.sounds);
+      this.audio.volume = 0.4
+    },
+    watch: {
+      src() {
+        this.playing = false;
+        this.audio.pause();
+        this.audio = new Audio(this.sounds);
+      }
+    },
+    methods: {
+      initPlayer: function () {
+        this.init = !this.init
+        this.audio.play();
+      },
+      player: function () {
+        this.isPause = !this.isPause
+        if(!this.isPause){
+          this.audio.play();
+        }else{
+          this.audio.pause();
+        }
+      },
+    }
+  })
+  </script>
+</html>

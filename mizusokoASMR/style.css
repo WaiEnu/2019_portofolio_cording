@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  background: #01266f;
+}
+#app {
+  width: 100%;
+  height: 100%;
+  max-width: 408px;
+  max-height: 758px;
+  min-height: 536px;
+  padding: 4px;
+}
+.containor {
+  width: 100%;
+  height: 100%;
+  background-image: url("img/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.cnt {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#bg {
+  top: 0;
+  width: 314px;
+  height: 331px;
+  transform: translate(0px, 0px);
+}
+#mbg2 {
+  background-image: url("img/m-bg-2.png");
+  width: 314px;
+  height: 331px;
+  transform: translate(0px, 0px);
+}
+#mbg {
+  background-image: url("img/m-bg.png");
+  width: 314px;
+  height: 331px;
+  transform: translate(0px, 0px);
+}
+#light {
+  background-image: url("img/m-lights.png");
+  width: 314px;
+  height: 331px;
+  transform: translate(0px, 0px);
+}#light {
+  animation: light 0.1s infinite;
+}
+@keyframes light {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.425;
+  }
+}
+#chara {
+  bottom: 16px;
+  width: 150px;
+  height: 400px;
+  transform: translate(0px, 0px);
+  cursor: pointer;
+}
+#body {
+  background-image: url("img/body_splite.png");
+  width: 150px;
+  height: 400px;
+  transform: translate(0px, 0px);
+  animation: body_splite 6s steps(3, end) 1s infinite alternate;
+}
+@keyframes body_splite {
+  0% {
+    background-position: 0 0;
+  }
+  96% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -450px 0;
+  }
+}
+#head {
+  background-image: url("img/hood.png");
+  width: 140px;
+  height: 324px;
+  transform: translate(4px, -11px);
+}
+#rightarm {
+  background-image: url("img/rightarm.png");
+  width: 46px;
+  height: 139px;
+  transform: translate(120px, 130px);
+}
+#leftarm {
+  background-image: url("img/lefttarm.png");
+  width: 107px;
+  height: 92px;
+  transform: translate(-32px, 128px);
+}
+#lamp {
+  background-image: url("img/lamp.png");
+  width: 75px;
+  height: 150px;
+  transform: translate(22px, 160px);
+}
+#blink {
+  background-image: url("img/light.png");
+  width: 45px;
+  height: 45px;
+  transform: translate(15px, 95px);
+  animation: blink 3s infinite alternate;
+}
+@keyframes blink {
+  0% {
+    opacity: 0.0125;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#play {
+  background-image: url("img/play.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+#pause {
+  background-image: url("img/pause.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
