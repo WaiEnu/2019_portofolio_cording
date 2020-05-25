@@ -69,13 +69,16 @@
   </v-navigation-drawer>
 
   <v-app-bar app clipped-left>
-    <v-app-bar-nav-icon @click.stop="drawer = drawer"></v-app-bar-nav-icon>
-    <v-toolbar-title>Drakes Equation</v-toolbar-title>
+    <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+    <v-toolbar-title class="px-3">Drakes Equation</v-toolbar-title>
+    <v-btn class="mr-2" fab dark small color="primary" @click="reset">
+      <v-icon dark>mdi-replay</v-icon>
+    </v-btn>
   </v-app-bar>
 
   <v-content>
     <v-container class="fill-height" fluid>
-      <v-row justify="center" align="center">
+      <v-row justify="center" align = "flex-start">
         <v-col cols="10">
           <v-sheet class="fill-height ma-0 pa-0" color="grey darken-3">
             <v-row class="ma-0 pa-0">
