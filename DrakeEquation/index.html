@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui ie=edge"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+  <title>ドレイクの方程式</title>
+  <style>
+    .v-input__slot{
+      padding: 0 .25rem!important;
+      margin-bottom: 0!important;
+    }
+     fieldset{
+      padding: 0 .25rem!important;
+    }
+    .v-input__control div{
+      margin-bottom: 0!important;
+    }
+  </style>
+</head>
+<body>
+<v-app id="app">
+  <v-navigation-drawer v-model="drawer" app clipped class="ma-0 pa-0">
+    <v-sheet class="fill-height ma-0 pa-0" color="grey darken-3">
+      <v-row class="ma-0 pa-0">
+        <v-col cols="12">
+          <v-card class="fill-height">
+            <div class="fill-height d-flex flex-column flex-no-wrap justify-space-around">
+              <v-card-title class="ma-0 px-3 pt-3 pb-2 text--primary body-2">1年間に誕生する恒星の数</v-card-title>
+              <v-card-actions class="ma-0 px-3 py-0">
+                <span class=" display-1 mr-1 mb-1">R*:</span>
+                <v-text-field
+                  outlined
+                  type="number"
+                  min="0"
+                  step="1"
+                  :rules="[rules.integer]"
+                  label=""
+                ></v-text-field>
+              </v-card-actions>
+            </div>
+          </v-card>
+        </v-col>
+        <v-col cols="12">
+          <v-card class="fill-height">
+            <div class="fill-height d-flex flex-column flex-no-wrap justify-space-around">
+              <v-card-title class="ma-0 px-3 pt-3 pb-2 text--primary body-2">恒星が惑星系を持つ確率</v-card-title>
+              <v-card-actions class="ma-0 px-3 py-0">
+                <span class=" display-1 mr-1 mb-1">fp:</span>
+                <v-text-field
+                  outlined
+                  type="number"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  :rules="[rules.decimal]"
+                  label=""
+                ></v-text-field>
+              </v-card-actions>
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-sheet>
+  </v-navigation-drawer>
+
+  <v-app-bar app clipped-left>
+    <v-app-bar-nav-icon @click.stop="drawer = drawer"></v-app-bar-nav-icon>
+    <v-toolbar-title>Drakes Equation</v-toolbar-title>
+  </v-app-bar>
+
+  <v-content>
+    <v-container class="fill-height" fluid>
+      <v-row justify="center" align="center">
+        <v-col cols="10">
+          <v-sheet class="fill-height ma-0 pa-0" color="grey darken-3">
+            <v-row class="ma-0 pa-0">
+              <v-col cols="12" sm="4" md="3">
+                <v-card class="fill-height">
+                  <div class="fill-height d-flex flex-column flex-no-wrap justify-space-around">
+                    <v-card-title class="ma-0 px-3 pt-3 pb-2 text--primary body-2">1年間に誕生する恒星の数</v-card-title>
+                    <v-card-actions class="ma-0 px-3 py-0">
+                      <span class=" display-1 mr-1 mb-1">R*:</span>
+                      <v-text-field
+                        outlined
+                        type="number"
+                        min="0"
+                        step="1"
+                        :rules="[rules.integer]"
+                        label=""
+                        v-model.number.trim="r"
+                      ></v-text-field>
+                    </v-card-actions>
+                  </div>
+                </v-card>
+              </v-col>
+              <v-col cols="12" sm="4" md="3">
+                <v-card class="fill-height">
+                  <div class="fill-height d-flex flex-column flex-no-wrap justify-space-around">
+                    <v-card-title class="ma-0 px-3 pt-3 pb-2 text--primary body-2">恒星が惑星系を持つ確率</v-card-title>
+                    <v-card-actions class="ma-0 px-3 py-0">
+                      <span class=" display-1 mr-1 mb-1">fp:</span>
+                      <v-text-field
+                        outlined
+                        type="number"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        :rules="[rules.decimal]"
+                        label=""
+                        v-model.number="fp"
+                      ></v-text-field>
+                    </v-card-actions>
+                  </div>
+                </v-card>
+              </v-col>
+              <v-col cols="12" sm="4" md="3">
+                <v-card class="fill-height">
+                  <div class="fill-height d-flex flex-column flex-no-wrap justify-space-around">
+                    <v-card-title class="ma-0 px-3 pt-3 pb-2 text--primary body-2">生命の存在が可能となる状態の惑星の数</v-card-title>
+                    <v-card-actions class="ma-0 px-3 py-0">
+                      <span class=" display-1 mr-1 mb-1">ne:</span>
+                      <v-text-field
+                        outlined
+                        type="number"
+                        min="0"
+                        step="1"
+                        :rules="[rules.integer]"
+                        label=""
+                        v-model.number="ne"
+                      ></v-text-field>
+                    </v-card-actions>
+                  </div>
+                </v-card>
+              </v-col>
+              <v-col cols="12" sm="4" md="3">
+                <v-card class="fill-height">
+                  <div class="fill-height d-flex flex-column flex-no-wrap justify-space-around">
+                    <v-card-title class="ma-0 pa-3 text--primary body-2">生命が実際に発生する確率</v-card-title>
+                    <v-card-actions class="ma-0 px-3 py-0">
+                      <span class=" display-1 mr-1 mb-1">fl:</span>
+                      <v-text-field
+                        outlined
+                        type="number"
+                        min="0.00"
+                        max="1.00"
+                        step="0.01"
+                        :rules="[rules.decimal]"
+                        label=""
+                        v-model.number="fl"
+                      ></v-text-field>
+                    </v-card-actions>
+                  </div>
+                </v-card>
+              </v-col>
+              <v-col cols="12" sm="4" md="3">
+                <v-card class="fill-height">
+                  <div class="fill-height d-flex flex-column flex-no-wrap justify-space-around">
+                    <v-card-title class="ma-0 pa-3 text--primary body-2">生命が知性を持つまで進化する確率</v-card-title>
+                    <v-card-actions class="ma-0 px-3 py-0">
+                      <span class=" display-1 mr-1 mb-1">fi:</span>
+                      <v-text-field
+                        outlined
+                        type="number"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        :rules="[rules.decimal]"
+                        label=""
+                        v-model.number="fi"
+                      ></v-text-field>
+                    </v-card-actions>
+                  </div>
+                </v-card>
+              </v-col>
+              <v-col cols="12" sm="4" md="3">
+                <v-card class="fill-height">
+                  <div class="fill-height d-flex flex-column flex-no-wrap justify-space-around">
+                    <v-card-title class="ma-0 pa-3 text--primary body-2">知的生命体が星間通信を行う確率</v-card-title>
+                    <v-card-actions class="ma-0 px-3 py-0 display-1">
+                      <span class=" display-1 mr-1 mb-1">fc:</span>
+                      <v-text-field
+                        outlined
+                        type="number"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        :rules="[rules.decimal]"
+                        label=""
+                        v-model.number="fc"
+                      ></v-text-field>
+                    </v-card-actions>
+                  </div>
+                </v-card>
+              </v-col>
+              <v-col cols="12" sm="4" md="3">
+                <v-card class="fill-height">
+                  <div class="fill-height d-flex flex-column flex-no-wrap justify-space-around">
+                    <v-card-title class="ma-0 pa-3 text--primary body-2">文明が存続する期間</v-card-title>
+                    <v-card-actions class="ma-0 px-3 py-0">
+                      <span class=" display-1 mr-1 mb-1">L:</span>
+                      <v-text-field
+                        outlined
+                        type="number"
+                        min="0"
+                        step="1"
+                        :rules="[rules.integer]"
+                        label=""
+                        v-model.number="l"
+                      ></v-text-field>
+                    </v-card-actions>
+                  </div>
+                </v-card>
+              </v-col>
+              <v-col cols="12" sm="4" md="3">
+                <v-card class="fill-height">
+                  <div class="fill-height d-flex flex-column flex-no-wrap justify-space-around">
+                    <v-card-title class="ma-0 pa-3 text--primary body-2">銀河に存在する文明の数</v-card-title>
+                    <v-card-actions class="ma-0 px-3 py-0">
+                      <span class=" display-1 mr-1 mb-1">N:{{result}}</span>
+                    </v-card-actions>
+                  </div>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-sheet>
+        </v-col>
+      </v-row >
+    </v-container>
+  </v-content>
+</v-app>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
