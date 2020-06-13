@@ -18,6 +18,8 @@ section{
 }
 .cta.filter {
   background: aliceblue;
+  margin-left: -1rem;
+  margin-right: -1rem;
 }
 .filter {
 	margin: 0;
