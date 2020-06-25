@@ -12,6 +12,7 @@ new Vue({
       {id: 6, label: 'PHP'},
       {id: 7, label: 'Canvas'},
       {id: 8, label: 'python'},
+      {id: 9, label: 'Reactjs'},
     ]
   },
   methods: {
