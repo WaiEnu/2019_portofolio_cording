@@ -1,28 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body{
-	margin: 0 15px;
+	margin: 0;
+	padding:0;
 }
 
 #app{
-	max-width: 1150px;
 	margin: 0 auto;
 }
 
+main{
+	max-width: 1150px;
+	margin: 0 auto;
+	padding:0;
+}
+
+.brand{
+  cursor: pointer;
+}
+
+.pagetop{
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+  background-color: slategray;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 section{
-	padding :1rem;
+	margin:1rem 0 2.5rem;
+	padding:0;
 }
 
 .works{
   padding : 0 1rem 1.5rem 1rem;
   background: #fff;
 }
-.cta.filter {
+
+.worksmenu{
   background: aliceblue;
-  margin-left: -1rem;
-  margin-right: -1rem;
+  overflow: scroll;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
 }
+
+.cta.filter {
+  margin: 0;
+  padding: 0;
+}
+@media screen and (min-width: 768px) {
+  .cta.filter {
+    width: 100%;
+  }
+}
+
 .filter {
-	margin: 0;
 	font-family: 'Poppins', helvetica;
 	font-size: 0.875rem;
 	text-align: center;

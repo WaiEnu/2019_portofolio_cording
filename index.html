@@ -12,17 +12,41 @@
 <body>
 
 <div id="app">
-<section id="topView">
-<b-jumbotron header="Portfolio">
+<b-navbar toggleable="lg" type="dark" variant="dark" sticky>
+  <b-navbar-brand @click="toTop"><span class="brand">Portofolio</span></b-navbar-brand>
+
+  <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+  <b-collapse id="nav-collapse" is-nav>
+    <b-navbar-nav>
+      <b-nav-item href="#about">About</b-nav-item>
+      <b-nav-item href="#works">Works</b-nav-item>
+    </b-navbar-nav>
+  </b-collapse>
+</b-navbar>
+  
+<main>
+
+<section id="about">
+<b-jumbotron header="About">
 
 <h5>経歴</h5>
-<p>生物学系学部卒→IT系勤務</p>
-<p>Java→C#(テスト)→Webデザイン(HTML,CSS,JQuery,あとphotoshopとIllustlatorを少々)→Wordpress開発</p>
+<p>生物学系学部卒
+<br>→IT系勤務</p>
+<p>Java
+<br>→C#(テスト)
+<br>→Webデザイン(HTML,CSS,JQuery,あとphotoshopとIllustlatorを少々)
+<br>→Wordpress開発</p>
+<p>最近はJavascriptフレームワーク開発(Vue,React)など</p>
+</b-jumbotron>
+</section>
+
+<section id="works">
+<b-jumbotron header="Works">
 <h5>作品集</h5>
 <p>主にフロントエンド<br>HTML+CSS+JQuery コーディング中心</p>
 
-<div class ="works">
-
+<div class ="worksmenu">
 <div class="cta filter">
   <a v-for="item in list" 
     @click="changeTab(item.id)" 
@@ -30,6 +54,9 @@
     class="filter"
     :class="{active:active(item.id)}">{{ item.label }}</a>
 </div>
+</div>
+
+<div class ="works">
 
 <div class ="containor">
 <div class="row">
@@ -242,6 +269,19 @@
 
 </b-jumbotron>
 </section>
+
+</main>
+
+<transition name="fade">
+  <div id="pagetop" class="pagetop" v-show="scY > 200" @click="toTop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none"
+         stroke="#fff"
+         stroke-width="1" stroke-linecap="square" stroke-linejoin="arcs">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </div>
+</transition>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
