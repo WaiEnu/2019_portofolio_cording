@@ -1,12 +1,39 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Hello World!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Keyboad</title>
+    <link rel="stylesheet" href="keyboad/keyboad.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
-
   <body>
-    <div id="apps">
-      <h1>Hello World!</h1>
+    <div id="app">
+      <div class="text-wrap">
+        <textarea id="text" rows="4" v-model="output"></textarea>
+      </div>
+
+      <div class="wrap" @click="hidden"></div>
+
+      <div class="keyboard" v-bind:class="{ 'keyboard--hidden' : isHidden }">
+        <div class="keyboard__keys" v-for="keys in keyLayout">
+          <button
+            v-for="key in keys"
+            type="button"
+            class="keyboard__key"
+            :class="spec(key)"
+            @click="trigger(key)"
+          >
+            <i class="material-icons" v-if="spec(key)!=''">{{key}}</i>
+            <span v-else>{{key}}</span>
+          </button>
+        </div>
+      </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="keyboad/keyboad.js"></script>
   </body>
 </html>
