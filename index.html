@@ -7,7 +7,143 @@
 <title>Program Works</title>
 <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
 <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
-<link href="index.css" rel="stylesheet" type="text/css">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+	margin: 0;
+	padding:0;
+}
+
+#app{
+	margin: 0 auto;
+}
+
+main{
+	max-width: 1150px;
+	margin: 0 auto;
+	padding:0;
+}
+
+.brand{
+  cursor: pointer;
+}
+
+.pagetop{
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+  background-color: slategray;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+section{
+	margin:1rem 0 2.5rem;
+	padding:0;
+}
+
+.works{
+  padding : 0 1rem 1.5rem 1rem;
+  background: #fff;
+}
+
+.worksmenu{
+  background: aliceblue;
+  overflow: scroll;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cta.filter {
+  margin: 0;
+  padding: 0;
+}
+@media screen and (min-width: 768px) {
+  .cta.filter {
+    width: 100%;
+  }
+}
+
+.filter {
+	font-family: 'Poppins', helvetica;
+	font-size: 0.875rem;
+	text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.filter a {
+  display: inline-block;
+  padding: 10px;
+  color: #4db6ac;
+  position: relative;
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.boxes article {
+  margin: 0;
+  padding: 1em;
+  line-height: 1em;
+  box-sizing: border-box;
+}
+
+.item {
+  margin: 0;
+  padding: 2em 1em;
+  border: 1px solid #ccc;
+  background: #fff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter a.active:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 15px 0 0;
+  border-color: #333 transparent transparent transparent;
+}
+
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style>
 </head>
 <body>
 
@@ -294,6 +430,57 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
 <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
-<script type="text/javascript" src="index.js"></script>
+<script>
+const app = new Vue({
+  el:"#app",
+  data() {
+    return {
+      current: 0,
+      list: [
+        {id: 0, label: 'All'},
+        {id: 1, label: 'Ajax'},
+        {id: 2, label: 'Bootstrap'},
+        {id: 3, label: 'CSS'},
+        {id: 4, label: 'JQuery'},
+        {id: 5, label: 'Vuejs'},
+        {id: 6, label: 'PHP'},
+        {id: 7, label: 'Canvas'},
+        {id: 8, label: 'python'},
+        {id: 9, label: 'Reactjs'},
+      ],
+      scTimer: 0,
+      scY: 0,
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    active: function(id) {
+      return this.current == id
+    },
+    changeTab: function(id) {
+      this.current = id
+    },
+    tab: function(id) {
+      return this.current == 0 || this.current == id
+    },
+    handleScroll: function () {
+      if (this.scTimer) return;
+      this.scTimer = setTimeout(() => {
+        this.scY = window.scrollY;
+        clearTimeout(this.scTimer);
+        this.scTimer = 0;
+      }, 100);
+    },
+   toTop: function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    },
+  }
+})
+</script>
 </body>
 </html>

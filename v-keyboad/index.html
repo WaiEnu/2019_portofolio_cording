@@ -1,11 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Virtual Keyboad</title>
-  <link rel="stylesheet" href="keyboad.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Virtual Keyboad</title>
+<link rel="stylesheet" href="keyboad.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style>
+*{
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+html,
+body{
+  width: 100%;
+  height: 100%;
+}
+#app{
+  width: 100%;
+  height: 100%;
+}
+.text-wrap{
+  padding-top: 8vh;
+  height: 20vh;
+}
+.wrap{
+  height: 80vh;
+}
+#text{
+  display: block;
+  width: 90vw;
+  font-size: 1.5rem;
+  padding: .5rem;
+  margin: 0 auto;
+}
+.keyboard {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 5px 0;
+  background: #004134;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  user-select: none;
+  transition: bottom 0.4s;
+}
+.keyboard--hidden {
+  bottom: -100%;
+}
+.keyboard__keys {
+  text-align: center;
+}
+span{
+  line-height: 1em;
+}
+.keyboard__key {
+  width: 6%;
+  height: 45px;
+  max-width: 90px;
+  margin: 3px;
+  border-radius: 4px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 1.05rem;
+  outline: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+}
+.keyboard__key:active {
+  background: rgba(255, 255, 255, 0.12);
+}
+.keyboard__key--wide {
+  width: 12%;
+}
+.keyboard__key--extra-wide {
+  width: 36%;
+  max-width: 500px;
+}
+.keyboard__key--activatable::after {
+  content: '';
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+}
+.keyboard__key--active::after {
+  background: #08ff00;
+}
+.keyboard__key--dark {
+  background: rgba(0, 0, 0, 0.25);
+}
+</style>
 </head>
 
 <body>
@@ -30,6 +126,95 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="keyboad.js"></script>
+<script>
+const app=new Vue({
+  el: '#app',
+  data: {
+    keyLayout:[
+      [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "keyboard_backspace"],
+      ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
+      ["keyboard_capslock", "a", "s", "d", "f", "g", "h", "j", "k", "l", "keyboard_return"],
+      ["check_circle", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?"],
+      ["space_bar"]
+    ],
+    specKey:[
+      {
+        name:'keyboard_backspace',
+        class:'keyboard__key--wide',
+      },
+      {
+        name:'keyboard_capslock',
+        class:'keyboard__key--wide keyboard__key--activatable',
+      },
+      {
+        name:'keyboard_return',
+        class:'keyboard__key--wide',
+      },
+      {
+        name:'check_circle',
+        class:'keyboard__key--wide keyboard__key--dark',
+      },
+      {
+        name:'space_bar',
+        class:'keyboard__key--extra-wide',
+      }
+    ],
+    isCapsLock: false,
+    isHidden:false,
+    output:"",
+  },
+  methods: {
+    spec:function(key){
+      let r=this.specKey.filter(function(item){
+        if (item.name == key) return true;
+      });
+      return r.length==0?"":r[0].class; 
+    },
+    trigger:function(key){
+      if(key==="keyboard_capslock"){
+        this.capsLock();
+      }else if(key==="check_circle"){
+        this.hidden();
+      }else {
+        this.oninput(key);
+      }
+    },
+    oninput:function(key){
+      if(key==="keyboard_backspace"){
+        this.output = this.output.substring(0, this.output.length - 1);
+      }else {
+        let l="";
+        if(key==="keyboard_return"){
+          l='\n';
+        }else if(key==="space_bar"){
+          l=' ';
+        }else {
+          l=key;
+        }
+        this.output = this.output+l;
+      }
+    },
+    capsLock:function(){
+      console.log('capsLock')
+      this.isCapsLock = !this.isCapsLock;
+      let result=[];
+      for (let layout of this.keyLayout) {
+        let tmp=[];
+        for (let key of layout) {
+          if (this.spec(key)=='') {
+            key=this.isCapsLock ? key.toUpperCase() : key.toLowerCase();
+          }
+          tmp.push(key);
+        }
+        result.push(tmp);
+      }
+      this.keyLayout = result;
+    },
+    hidden:function(){
+      this.isHidden = !this.isHidden;
+    },
+  }
+})
+</script>
 </body>
 </html>
