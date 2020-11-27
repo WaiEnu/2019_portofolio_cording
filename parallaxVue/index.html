@@ -12,10 +12,14 @@ body{
   width: 100%;
   height: 100vh;
 }
-#parallax.day {
+#wrap{
+  width: 100%;
+  height: 100vh;
+}
+#wrap.day {
   background-image: url(day.png);
 }
-#parallax.night {
+#wrap.night {
   background-image: url(night.png);
 }
 #parallax {
@@ -47,8 +51,10 @@ h1 {
 </style>
 </head>
 <body>
-<div id="app" class="wrap" :class="timezone">
+<div id="app">
+<div id="wrap" :class="timezone">
     <div id="parallax" @mousemove='doPallarax':style="{backgroundPosition : pallarax}" :class="timezone"><h1>404 Not Found</h1></div>
+</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
