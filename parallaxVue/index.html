@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>404</title>
+<style>
+body{
+  margin: 0;
+  background-color: #1d1e22;
+}
+#parallax {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url(https://raw.githubusercontent.com/oscicen/oscicen.github.io/master/img/depth-3.png), url(https://raw.githubusercontent.com/oscicen/oscicen.github.io/master/img/depth-2.png), url(https://raw.githubusercontent.com/oscicen/oscicen.github.io/master/img/depth-1.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: 50% 50%;
+}
+h1 {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: "Arial";
+  text-transform: uppercase;
+  opacity: .2;
+  font-size: 70px;
+}
+</style>
+</head>
+<body>
+<div id="app" class="wrap">
+    <div id="parallax" @mousemove='doPallarax':style="{backgroundPosition : pallarax}"><h1>404 Not Found</h1></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+console.clear();
+
+new Vue({
+  el: "#app",
+  data(){
+    return{
+      _mouseX: 0,
+      _mouseY: 0,
+      pallarax: 0,
+    }
+  },
+  mounted:function(){
+      _w=window.innerWidth
+      _h=window.innerHeight
+      let _depth1 = `${50 - _w/2 * 0.01}% ${50 - _h * 0.01}%`;
+      let _depth2 = `${50 - _w/2 * 0.02}% ${50 - _h * 0.02}%`;
+      let _depth3 = `${50 - _w/2 * 0.06}% ${50 - _h * 0.06}%`;
+      let x = `${_depth3}, ${_depth2}, ${_depth1}`;
+      this.pallarax = x;
+  },
+  methods: {
+    doPallarax:function(e){
+      console.log()
+      this._mouseX = e.clientX;
+      this._mouseY = e.clientY;
+      _w=window.innerWidth
+      _h=window.innerHeight
+      let _depth1 = `${50 - (this._mouseX - _w/2) * 0.01}% ${50 - (this._mouseY - _h/2) * 0.01}%`;
+      let _depth2 = `${50 - (this._mouseX - _w/2) * 0.02}% ${50 - (this._mouseY - _h/2) * 0.02}%`;
+      let _depth3 = `${50 - (this._mouseX - _w/2) * 0.06}% ${50 - (this._mouseY - _h/2) * 0.06}%`;
+      let x = `${_depth3}, ${_depth2}, ${_depth1}`;
+      this.pallarax = x;
+    }
+  }
+});
+</script>
+</body>
+</html>
