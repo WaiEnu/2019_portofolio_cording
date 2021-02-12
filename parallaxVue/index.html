@@ -4,49 +4,62 @@
 <meta charset="utf-8" />
 <title>404</title>
 <style>
+html,body{
+  height: 100%;
+}
 body{
+  width: 100%;
+  height: 100%;
   margin: 0;
   background-color: #1d1e22;
 }
 #app{
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #wrap{
+  max-width: 512px;
+  max-height: 384px;
   width: 100%;
-  height: 100vh;
-}
-#wrap.day {
-  background-image: url(day.png);
-}
-#wrap.night {
-  background-image: url(night.png);
+  height: 100%;
+  max-width: 1024px;
+  max-height: 768px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 #parallax {
   position: relative;
   width: 100%;
-  height: 100vh;
-  background-image: url(depth4.png), url(depth3day.png), url(depth2.png), url(depth1.png);
+  height: 100%;
+  background-image: url(depth4.png), url(depth3.png), url(depth2day.png), url(depth1.png), url(day.png);
   background-repeat: no-repeat;
   background-position: center;
   background-position: 50% 50%;
+  background-size: 50% auto;
 }
 #parallax.day {
-  background-image: url(depth4.png), url(depth3day.png), url(depth2.png), url(depth1.png);
+  background-image: url(depth4.png), url(depth3.png), url(depth2day.png), url(depth1.png), url(day.png);
 }
 #parallax.night {
-  background-image: url(depth4.png), url(depth3night.png), url(depth2.png), url(depth1.png);
+  background-image: url(depth4.png), url(depth3.png), url(depth2night.png), url(depth1.png) ,url(night.png);
 }
 h1 {
   position: absolute;
-  top: 47%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
   font-family: "Arial";
   text-transform: uppercase;
   opacity: .2;
-  font-size: 70px;
+  font-size: 60px;
+  text-align: center;
+  width:100px;
 }
 </style>
 </head>
@@ -90,11 +103,13 @@ new Vue({
       const rate2=0.02;
       const rate3=0.03;
       const rate4=0.04;
+      const rate5=0.05;
       let _depth1 = `${50 - (_x - _w/2) * rate1}% ${50 - (_y - _h/2) * rate1}%`;
       let _depth2 = `${50 - (_x - _w/2) * rate2}% ${50 - (_y - _h/2) * rate2}%`;
       let _depth3 = `${50 - (_x - _w/2) * rate3}% ${50 - (_y - _h/2) * rate3}%`;
       let _depth4 = `${50 - (_x - _w/2) * rate4}% ${50 - (_y - _h/2) * rate4}%`;
-      return `${_depth4}, ${_depth3}, ${_depth2}, ${_depth1}`;
+      let _depth5 = `${50 - (_x - _w/2) * rate5}% ${50 - (_y - _h/2) * rate5}%`;
+      return `${_depth5}, ${_depth4}, ${_depth3}, ${_depth2}, ${_depth1}`;
     },
   }
 });
