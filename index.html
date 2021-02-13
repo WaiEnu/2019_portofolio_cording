@@ -409,6 +409,13 @@ section{
       </div>
     </article>
   </transition>
+  <transition name="bounce">
+    <article class="cnt col-md-4 col-sm-4 col-xs-6"  v-if="tab(3)">
+      <div class="item h-100">
+        <a href ="/enchanted_laboratory/index.html" target="_blank">魅惑の実験室</a>
+      </div>
+    </article>
+  </transition>
 </div>
 </div>
 </div>
@@ -424,9 +431,7 @@ section{
 
 <transition name="fade">
   <div id="pagetop" class="pagetop" v-show="scY > 200" @click="toTop">
-    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none"
-         stroke="#fff"
-         stroke-width="1" stroke-linecap="square" stroke-linejoin="arcs">
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1" stroke-linecap="square" stroke-linejoin="arcs">
       <path d="M18 15l-6-6-6 6"/>
     </svg>
   </div>
